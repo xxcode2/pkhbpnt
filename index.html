@@ -131,6 +131,78 @@
   /* ── MAIN CONTENT ── */
   .container { max-width:1200px; margin:0 auto; padding: 32px 24px 60px; }
 
+  /* ── DATA SOURCE BAR ── */
+  .source-bar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap:12px; flex-wrap:wrap;
+  }
+  .source-bar .src-icon { font-size:20px; }
+  .source-bar .src-info { flex:1; }
+  .source-bar .src-title { font-size:13px; font-weight:700; color:var(--text); }
+  .source-bar .src-sub { font-size:11.5px; color:var(--muted); }
+  .source-bar .btn-load {
+    background: linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#fff; border:none; padding:9px 20px;
+    border-radius:9px; font-size:13px; font-weight:600;
+    font-family:inherit; cursor:pointer;
+    transition: opacity .2s, transform .1s;
+    display: flex; align-items:center; gap:6px;
+  }
+  .source-bar .btn-load:hover { opacity:.9; }
+  .source-bar .btn-load:active { transform:scale(.98); }
+  .source-bar .btn-load:disabled { opacity:.5; cursor:default; }
+  .source-status {
+    font-size:12px; color:var(--muted); padding:4px 0;
+  }
+  .source-status.ready { color:#15803D; font-weight:600; }
+
+  /* ── UPLOAD FALLBACK ── */
+  .upload-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .upload-toggle {
+    font-size:12px; color:var(--muted); cursor:pointer;
+    text-align:center; padding:8px;
+    border-top:1px dashed var(--border); margin-top:8px;
+  }
+  .upload-toggle:hover { color:var(--accent); }
+  .upload-cols { display:flex; gap:12px; flex-wrap:wrap; }
+  .upload-box {
+    flex:1; min-width:200px;
+    border: 2px dashed var(--border);
+    border-radius:12px;
+    padding: 18px 16px; text-align:center;
+    cursor:pointer; transition: border-color .2s, background .2s;
+    position:relative; overflow:hidden;
+  }
+  .upload-box:hover { border-color:var(--accent); background:#F5F8FF; }
+  .upload-box input[type=file] {
+    position:absolute; inset:0; opacity:0; cursor:pointer;
+  }
+  .upload-box .up-icon { font-size:24px; margin-bottom:6px; }
+  .upload-box .up-label { font-size:13px; font-weight:600; }
+  .upload-box .up-sub { font-size:11px; color:var(--muted); margin-top:3px; }
+  .upload-box.pkh-box { border-color:#F3D08B; }
+  .upload-box.bpnt-box { border-color:#7EC8D3; }
+  .btn-merge {
+    margin-top:12px;
+    background: linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#fff; border:none; padding:10px 24px;
+    border-radius:9px; font-size:13px; font-weight:600;
+    font-family:inherit; cursor:pointer;
+    transition: opacity .2s, transform .1s;
+  }
+  .btn-merge:hover { opacity:.9; }
+  .btn-merge:active { transform:scale(.98); }
+
   /* ── LEGEND ── */
   .legend-row {
     display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;
@@ -141,9 +213,10 @@
   /* ── SEARCH BAR ── */
   .search-bar {
     display: flex; gap:10px; margin-bottom:24px; flex-wrap:wrap;
+    align-items:center;
   }
   .search-wrap {
-    flex:1; min-width:220px;
+    flex:1; min-width:200px;
     position:relative;
   }
   .search-wrap input {
@@ -169,6 +242,7 @@
     transition: border-color .2s;
   }
   select.filter-sel:focus { border-color: var(--accent); }
+  select.filter-sel:disabled { opacity:.5; cursor:not-allowed; }
 
   /* ── RESULT COUNT ── */
   .result-info {
@@ -213,47 +287,6 @@
   .empty .ico { font-size:40px; margin-bottom:12px; }
   .empty p { font-size:14px; }
 
-  /* ── UPLOAD PANEL ── */
-  .upload-section {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 28px 24px;
-    margin-bottom: 28px;
-  }
-  .upload-section h3 {
-    font-size:15px; font-weight:700; margin-bottom:4px;
-  }
-  .upload-section p.sub { font-size:12.5px; color:var(--muted); margin-bottom:18px; }
-  .upload-cols { display:flex; gap:12px; flex-wrap:wrap; }
-  .upload-box {
-    flex:1; min-width:200px;
-    border: 2px dashed var(--border);
-    border-radius:12px;
-    padding: 20px 16px; text-align:center;
-    cursor:pointer; transition: border-color .2s, background .2s;
-    position:relative; overflow:hidden;
-  }
-  .upload-box:hover { border-color:var(--accent); background:#F5F8FF; }
-  .upload-box input[type=file] {
-    position:absolute; inset:0; opacity:0; cursor:pointer;
-  }
-  .upload-box .up-icon { font-size:26px; margin-bottom:6px; }
-  .upload-box .up-label { font-size:13px; font-weight:600; }
-  .upload-box .up-sub { font-size:11px; color:var(--muted); margin-top:3px; }
-  .upload-box.pkh-box { border-color: #F3D08B; }
-  .upload-box.bpnt-box { border-color: #7EC8D3; }
-  .btn-merge {
-    margin-top:14px;
-    background: linear-gradient(135deg,var(--accent),var(--accent2));
-    color:#fff; border:none; padding:11px 28px;
-    border-radius:10px; font-size:14px; font-weight:600;
-    font-family:inherit; cursor:pointer;
-    transition: opacity .2s, transform .1s;
-  }
-  .btn-merge:hover { opacity:.9; }
-  .btn-merge:active { transform:scale(.98); }
-
   /* ── CHARTS ── */
   .charts-grid {
     display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
@@ -266,7 +299,6 @@
   }
   .chart-card h4 { font-size:13px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; margin-bottom:16px; }
 
-  /* Donut chart via conic-gradient */
   .donut-wrap { display:flex; align-items:center; gap:20px; }
   .donut {
     width:90px; height:90px; border-radius:50%;
@@ -280,7 +312,6 @@
   .donut-legend li .dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
   .donut-legend li span { margin-left:auto; font-weight:700; }
 
-  /* Bar chart via CSS */
   .bar-list { list-style:none; }
   .bar-list li {
     display:flex; align-items:center; gap:10px;
@@ -309,6 +340,18 @@
   .pg-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
   .pg-btn:disabled { opacity:.35; cursor:default; }
 
+  /* ── EXPORT BTN ── */
+  .btn-export {
+    background:var(--surface);
+    border: 1.5px solid var(--border);
+    color:var(--text);
+    padding:9px 16px; border-radius:9px;
+    font-size:13px; font-weight:600; font-family:inherit;
+    cursor:pointer; display:flex; align-items:center; gap:6px;
+    transition: all .15s;
+  }
+  .btn-export:hover { border-color:var(--accent); color:var(--accent); }
+
   /* ── FOOTER ── */
   footer {
     background: var(--text);
@@ -323,6 +366,7 @@
     .container { padding:20px 16px 40px; }
     th,td { padding:10px 12px; }
     .search-bar { flex-direction:column; }
+    .source-bar { flex-direction:column; align-items:flex-start; }
   }
 </style>
 </head>
@@ -338,7 +382,7 @@
         <p>Kec. Kasomalang · Kab. Subang</p>
       </div>
     </div>
-    <div class="header-badge">Data Bansos 2025</div>
+    <div class="header-badge">Data Bansos 2026</div>
   </div>
 </header>
 
@@ -346,7 +390,7 @@
 <section class="hero">
   <div class="hero-eyebrow">📋 Transparansi Pemerintah Desa</div>
   <h2>Data Penerima Bantuan Sosial</h2>
-  <p>PKH & BPNT Tahun 2025 — informasi resmi yang dapat diakses oleh seluruh warga</p>
+  <p>PKH & BPNT Tahap 2 Tahun 2026 — Informasi resmi yang dapat diakses oleh seluruh warga</p>
   <div class="stats-row" id="statsRow">
     <div class="stat-card"><div class="num" id="statTotal">—</div><div class="lbl">Total Penerima</div></div>
     <div class="stat-card"><div class="num" id="statPKH">—</div><div class="lbl">PKH Saja</div></div>
@@ -357,10 +401,24 @@
 
 <div class="container">
 
-  <!-- UPLOAD PANEL -->
-  <div class="upload-section">
-    <h3>📂 Upload Data Excel</h3>
-    <p class="sub">Upload dua file Excel (PKH dan BPNT). Sistem akan otomatis menggabungkan dan mendeteksi penerima ganda.</p>
+  <!-- DATA SOURCE BAR -->
+  <div class="source-bar">
+    <div class="src-icon">📡</div>
+    <div class="src-info">
+      <div class="src-title">Load dari GitHub</div>
+      <div class="src-sub">PKH & BPNT April–Juni 2026 · xxcode2/pkhbpnt</div>
+    </div>
+    <button class="btn-load" id="btnLoad" onclick="loadFromGitHub()">
+      ⬇️ Load Data
+    </button>
+    <div class="source-status" id="sourceStatus"></div>
+  </div>
+
+  <!-- UPLOAD FALLBACK -->
+  <div class="upload-section" id="uploadSection" style="display:none">
+    <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">
+      Atau upload manual (jika load dari GitHub gagal):
+    </div>
     <div class="upload-cols">
       <div class="upload-box pkh-box">
         <input type="file" id="filePKH" accept=".xlsx,.xls">
@@ -375,7 +433,13 @@
         <div class="up-sub" id="nameBPNT">Pilih file .xlsx</div>
       </div>
     </div>
-    <button class="btn-merge" onclick="mergeData()">⚡ Gabungkan & Tampilkan Data</button>
+    <button class="btn-merge" onclick="mergeData()">⚡ Gabungkan & Tampilkan</button>
+    <div class="upload-toggle" onclick="document.getElementById('uploadSection').style.display='none'">
+      Tutup opsi upload ↑
+    </div>
+  </div>
+  <div class="upload-toggle" id="showUploadToggle" style="display:none;margin-bottom:16px;color:var(--accent);cursor:pointer;font-size:12px;text-align:center;" onclick="document.getElementById('uploadSection').style.display='block';this.style.display='none'">
+    ▲ Atau upload file Excel secara manual
   </div>
 
   <!-- CHARTS -->
@@ -388,7 +452,7 @@
       </div>
     </div>
     <div class="chart-card">
-      <h4>📍 Per Dusun</h4>
+      <h4>📍 Per Desa</h4>
       <ul class="bar-list" id="dusunBars"></ul>
     </div>
     <div class="chart-card">
@@ -397,7 +461,7 @@
     </div>
   </div>
 
-  <!-- LEGEND + SEARCH -->
+  <!-- LEGEND + SEARCH + EXPORT -->
   <div class="legend-row">
     <span class="legend-label">Keterangan:</span>
     <span class="chip pkh">PKH</span>
@@ -416,9 +480,18 @@
       <option value="BPNT">BPNT Saja</option>
       <option value="PKH + BPNT">PKH + BPNT</option>
     </select>
-    <select class="filter-sel" id="filterDusun" onchange="renderTable()">
-      <option value="">Semua Dusun</option>
+    <select class="filter-sel" id="filterDusun" onchange="onDusunChange();renderTable()">
+      <option value="">Semua Desa</option>
     </select>
+    <select class="filter-sel" id="filterRW" onchange="onRWChange();renderTable()" disabled>
+      <option value="">Semua RW</option>
+    </select>
+    <select class="filter-sel" id="filterRT" onchange="renderTable()" disabled>
+      <option value="">Semua RT</option>
+    </select>
+    <button class="btn-export" id="btnExport" onclick="exportFiltered()" style="display:none">
+      📥 Export Excel
+    </button>
   </div>
 
   <div class="result-info" id="resultInfo"></div>
@@ -432,12 +505,12 @@
           <th>Nama</th>
           <th>Alamat</th>
           <th>RT/RW</th>
-          <th>Dusun</th>
+          <th>Desa</th>
           <th>Program</th>
         </tr>
       </thead>
       <tbody id="tableBody">
-        <tr><td colspan="7"><div class="empty"><div class="ico">📭</div><p>Upload file Excel PKH dan BPNT untuk menampilkan data.</p></div></td></tr>
+        <tr><td colspan="7"><div class="empty"><div class="ico">📭</div><p>Klik "Load Data" untuk mengambil data dari GitHub, atau scroll ke bawah untuk upload manual.</p></div></td></tr>
       </tbody>
     </table>
   </div>
@@ -447,14 +520,146 @@
 
 <footer>
   <strong>Desa Kasomalang Kulon</strong> · Kecamatan Kasomalang · Kabupaten Subang<br>
-  Data Penerima Bansos PKH &amp; BPNT 2025 · Dikelola oleh Pemerintah Desa
+  Data Penerima Bansos PKH &amp; BPNT Tahap 2 Tahun 2026 · Dikelola oleh Pemerintah Desa
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
+// ── RW → DESA mapping ──
+const RW_DUSUN_MAP = {
+  '1': 'Dusun 1',
+  '2': 'Dusun 1',
+  '3': 'Dusun 2',
+  '6': 'Dusun 2',
+  '4': 'Dusun 3',
+  '5': 'Dusun 3',
+  '7': 'Dusun 3',
+};
+const DUSUN_RW_MAP = {
+  'Dusun 1': ['1','2'],
+  'Dusun 2': ['3','6'],
+  'Dusun 3': ['4','5','7'],
+};
+const RW_RT_MAP = {
+  '1': ['1','2','3','4','5','6'],
+  '2': ['1','2','3','4','5','6'],
+  '3': ['1','2','3','4'],
+  '6': ['1','2','3'],
+  '4': ['1','2','3','4','5'],
+  '5': ['1','2'],
+  '7': ['1','2','3'],
+};
+
 let allData = [];
 let currentPage = 1;
 const PAGE_SIZE = 20;
+
+// ── GitHub raw URLs ──
+const PKH_URL  = 'https://raw.githubusercontent.com/xxcode2/pkhbpnt/main/DATA%20PKH%20BULAN%20APRIL%20-%20JUNI%20TAHAP%202.xlsx';
+const BPNT_URL = 'https://raw.githubusercontent.com/xxcode2/pkhbpnt/main/DATA%20BPNT%20TAHAP%202%20TAHUN%202026%20BULAN%20APRIL-JUNI.xlsx';
+
+async function loadBinary(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.arrayBuffer();
+}
+
+async function loadFromGitHub() {
+  const btn = document.getElementById('btnLoad');
+  const status = document.getElementById('sourceStatus');
+  btn.disabled = true;
+  btn.textContent = '⏳ Loading…';
+  status.textContent = '';
+  status.className = 'source-status';
+
+  try {
+    status.textContent = 'Mengunduh PKH…';
+    const pkhBuf  = await loadBinary(PKH_URL);
+    status.textContent = 'Mengunduh BPNT…';
+    const bpntBuf = await loadBinary(BPNT_URL);
+
+    status.textContent = 'Memproses data…';
+
+    const pkhRows  = await readXLSXBuf(pkhBuf);
+    const bpntRows = await readXLSXBuf(bpntBuf);
+
+    // Combine
+    const nikMap = {};
+    pkhRows.forEach(r => {
+      const nik = normNik(r[1]); // NIK = col index 1
+      if (!nik) return;
+      nikMap[nik] = {...r, _PKH:true, _BPNT:false};
+    });
+    bpntRows.forEach(r => {
+      const nik = normNik(r[1]);
+      if (!nik) return;
+      if (nikMap[nik]) {
+        nikMap[nik]._BPNT = true;
+      } else {
+        nikMap[nik] = {...r, _PKH:false, _BPNT:true};
+      }
+    });
+
+    allData = Object.values(nikMap).map((r, i) => {
+      let prog = '';
+      if (r._PKH && r._BPNT) prog = 'PKH + BPNT';
+      else if (r._PKH)         prog = 'PKH';
+      else                     prog = 'BPNT';
+
+      const nik    = String(r[1] || '');
+      const nama   = String(r[2] || '');
+      const alamat = String(r[4] || '');
+      const rtRaw  = String(r[6] || '').trim();
+      const rwRaw  = String(r[7] || '').trim();
+      const bank   = String(r[8] || '');
+      const ket    = String(r[9] || '');
+
+      const rt  = rtRaw ? String(rtRaw).replace(/\D/g,'').padStart(2,'0') : '';
+      const rw  = rwRaw ? String(rwRaw).replace(/\D/g,'').padStart(2,'0') : '';
+      const dusun = rwRaw ? (RW_DUSUN_MAP[rwRaw] || rwRaw) : '';
+
+      return {
+        no: i+1, nik, nama, alamat, rt, rw, dusun, bank, ket, program: prog
+      };
+    });
+
+    updateStats();
+    buildDusunFilter();
+    document.getElementById('btnExport').style.display = 'flex';
+    renderCharts();
+    renderTable();
+    document.getElementById('chartsGrid').style.display = 'grid';
+
+    const total = allData.length;
+    status.textContent = `✓ Loaded ${total} data`;
+    status.className = 'source-status ready';
+    btn.textContent = '🔄 Refresh';
+    btn.disabled = false;
+  } catch(e) {
+    status.textContent = '✗ Gagal: ' + e.message;
+    status.className = 'source-status';
+    btn.textContent = '⬇️ Load Data';
+    btn.disabled = false;
+    document.getElementById('showUploadToggle').style.display = 'block';
+    document.getElementById('uploadSection').style.display = 'block';
+  }
+}
+
+function readXLSXBuf(buf) {
+  return new Promise((resolve, reject) => {
+    try {
+      const wb = XLSX.read(buf, {type:'array'});
+      const ws = wb.Sheets[wb.SheetNames[0]];
+      const rows = XLSX.utils.sheet_to_json(ws, {header:1, defval:''});
+      // Filter out empty rows AND skip header row (first row = ['NO','NIK',...])
+      resolve(rows.slice(1).filter(r => r.some(c => c !== '')));
+    } catch(e) { reject(e); }
+  });
+}
+
+function normNik(v) {
+  return String(v || '').replace(/\s/g,'');
+}
 
 // ── File label ──
 document.getElementById('filePKH').addEventListener('change', function(){
@@ -464,29 +669,16 @@ document.getElementById('fileBPNT').addEventListener('change', function(){
   document.getElementById('nameBPNT').textContent = this.files[0]?.name || 'Pilih file .xlsx';
 });
 
-// ── Normalize column keys ──
-function normalizeRow(row) {
-  const out = {};
-  for (const k in row) {
-    const nk = k.trim().toUpperCase()
-      .replace(/\s+/g,'_')
-      .replace(/\//,'_')
-      .replace('KABUPATEN_KOTA','KAB_KOTA');
-    out[nk] = typeof row[k] === 'string' ? row[k].trim() : row[k];
-  }
-  return out;
-}
-
-function readXLSX(file) {
+function readXLSXFile(file) {
   return new Promise((resolve) => {
     const reader = new FileReader();
     reader.onload = e => {
-      const wb = XLSX.read(e.target.result, {type:'binary'});
+      const wb = XLSX.read(e.target.result, {type:'array'});
       const ws = wb.Sheets[wb.SheetNames[0]];
-      const rows = XLSX.utils.sheet_to_json(ws, {defval:''});
-      resolve(rows.map(normalizeRow));
+      const rows = XLSX.utils.sheet_to_json(ws, {header:1, defval:''});
+      resolve(rows.filter(r => r.some(c => c !== '')));
     };
-    reader.readAsBinaryString(file);
+    reader.readAsArrayBuffer(file);
   });
 }
 
@@ -496,53 +688,102 @@ async function mergeData() {
 
   if (!fPKH && !fBPNT) { alert('Pilih minimal satu file Excel.'); return; }
 
-  let pkhRows = fPKH  ? await readXLSX(fPKH)  : [];
-  let bpntRows= fBPNT ? await readXLSX(fBPNT) : [];
+  let pkhRows = fPKH  ? await readXLSXFile(fPKH)  : [];
+  let bpntRows= fBPNT ? await readXLSXFile(fBPNT) : [];
 
-  // Index by NIK
+  // Skip header row
+  if (pkhRows.length) pkhRows = pkhRows.slice(1);
+  if (bpntRows.length) bpntRows = bpntRows.slice(1);
+
   const nikMap = {};
-
   pkhRows.forEach(r => {
-    const nik = String(r.NIK || '').replace(/\s/g,'');
+    const nik = normNik(r[1]);
     if (!nik) return;
     nikMap[nik] = {...r, _PKH:true, _BPNT:false};
   });
-
   bpntRows.forEach(r => {
-    const nik = String(r.NIK || '').replace(/\s/g,'');
+    const nik = normNik(r[1]);
     if (!nik) return;
     if (nikMap[nik]) {
-      nikMap[nik]._BPNT = true; // double
+      nikMap[nik]._BPNT = true;
     } else {
       nikMap[nik] = {...r, _PKH:false, _BPNT:true};
     }
   });
 
-  allData = Object.values(nikMap).map((r,i) => {
+  allData = Object.values(nikMap).map((r, i) => {
     let prog = '';
     if (r._PKH && r._BPNT) prog = 'PKH + BPNT';
     else if (r._PKH)         prog = 'PKH';
     else                     prog = 'BPNT';
 
-    return {
-      no:    i+1,
-      nik:   String(r.NIK||''),
-      nama:  r.NAMA || r.NAMA_LENGKAP || '',
-      alamat:r.ALAMAT || '',
-      rt:    String(r.RT||'').padStart(3,'0'),
-      rw:    String(r.RW||'').padStart(3,'0'),
-      dusun: r.DUSUN || r.DUSUN_KAMPUNG || '',
-      kel:   r.DESA_KELURAHAN || r.KELURAHAN || '',
-      jk:    r.JENIS_KELAMIN || r.JK || '',
-      program: prog
-    };
+    const nik    = String(r[1] || '');
+    const nama   = String(r[2] || '');
+    const alamat = String(r[4] || '');
+    const rtRaw  = String(r[6] || '').trim();
+    const rwRaw  = String(r[7] || '').trim();
+    const bank   = String(r[8] || '');
+    const ket    = String(r[9] || '');
+
+    const rt  = rtRaw ? String(rtRaw).replace(/\D/g,'').padStart(2,'0') : '';
+    const rw  = rwRaw ? String(rwRaw).replace(/\D/g,'').padStart(2,'0') : '';
+    const dusun = rwRaw ? (RW_DUSUN_MAP[String(rwRaw).replace(/\D/g,'')] || rwRaw) : '';
+
+    return { no:i+1, nik, nama, alamat, rt, rw, dusun, bank, ket, program:prog };
   });
 
   updateStats();
-  updateDusunFilter();
+  buildDusunFilter();
+  document.getElementById('btnExport').style.display = 'flex';
   renderCharts();
   renderTable();
   document.getElementById('chartsGrid').style.display = 'grid';
+  document.getElementById('sourceStatus').textContent = `✓ Loaded ${allData.length} data (upload manual)`;
+  document.getElementById('sourceStatus').className = 'source-status ready';
+}
+
+function buildDusunFilter() {
+  const sel = document.getElementById('filterDusun');
+  sel.innerHTML = '<option value="">Semua Desa</option>';
+  const dusuns = ['Dusun 1','Dusun 2','Dusun 3'];
+  dusuns.forEach(d => sel.appendChild(new Option(d, d)));
+}
+
+function onDusunChange() {
+  const dusun = document.getElementById('filterDusun').value;
+  const rwSel = document.getElementById('filterRW');
+  const rtSel = document.getElementById('filterRT');
+  rtSel.innerHTML = '<option value="">Semua RT</option>';
+  rtSel.disabled = true;
+
+  if (!dusun) {
+    rwSel.innerHTML = '<option value="">Semua RW</option>';
+    rwSel.disabled = true;
+    return;
+  }
+
+  const rws = DUSUN_RW_MAP[dusun] || [];
+  rwSel.innerHTML = '<option value="">Semua RW</option>';
+  rws.forEach(r => rwSel.appendChild(new Option('RW ' + r, r)));
+  rwSel.disabled = false;
+  rwSel.value = '';
+}
+
+function onRWChange() {
+  const rw = document.getElementById('filterRW').value;
+  const rtSel = document.getElementById('filterRT');
+
+  if (!rw) {
+    rtSel.innerHTML = '<option value="">Semua RT</option>';
+    rtSel.disabled = true;
+    return;
+  }
+
+  const rts = RW_RT_MAP[rw] || [];
+  rtSel.innerHTML = '<option value="">Semua RT</option>';
+  rts.forEach(r => rtSel.appendChild(new Option('RT ' + r, r)));
+  rtSel.disabled = false;
+  rtSel.value = '';
 }
 
 function updateStats(){
@@ -555,24 +796,13 @@ function updateStats(){
   document.getElementById('statBoth').textContent  = both.toLocaleString('id');
 }
 
-function updateDusunFilter(){
-  const sel = document.getElementById('filterDusun');
-  sel.innerHTML = '<option value="">Semua Dusun</option>';
-  const dusuns = [...new Set(allData.map(d=>d.dusun).filter(Boolean))].sort();
-  dusuns.forEach(d => {
-    const o = document.createElement('option');
-    o.value = d; o.textContent = d;
-    sel.appendChild(o);
-  });
-}
-
 function renderCharts(){
   const pkh  = allData.filter(d=>d.program==='PKH').length;
   const bpnt = allData.filter(d=>d.program==='BPNT').length;
   const both = allData.filter(d=>d.program==='PKH + BPNT').length;
   const total= allData.length || 1;
 
-  // Donut via canvas
+  // Donut
   const canvas = document.getElementById('donutCanvas');
   const ctx = canvas.getContext('2d');
   const cx=45,cy=45,r=38,ir=22;
@@ -604,9 +834,12 @@ function renderCharts(){
     <li><span class="dot" style="background:#15803D"></span>PKH+BPNT <span>${both}</span></li>
   `;
 
-  // Dusun bars
+  // Desa bars
   const dusunCount = {};
-  allData.forEach(d => { if(d.dusun) dusunCount[d.dusun]=(dusunCount[d.dusun]||0)+1; });
+  allData.forEach(d => {
+    const key = d.dusun || 'Lainnya';
+    dusunCount[key] = (dusunCount[key]||0)+1;
+  });
   const sortedDusun = Object.entries(dusunCount).sort((a,b)=>b[1]-a[1]);
   const maxD = sortedDusun[0]?.[1] || 1;
   document.getElementById('dusunBars').innerHTML = sortedDusun.map(([d,n]) => `
@@ -616,24 +849,25 @@ function renderCharts(){
       <span class="bar-val">${n}</span>
     </li>`).join('');
 
-  // Gender bars
-  const lk = allData.filter(d=>/laki/i.test(d.jk)).length;
-  const pr = allData.filter(d=>/perempuan/i.test(d.jk)).length;
-  const maxG = Math.max(lk,pr,1);
+  // Gender bars (no JK column in this data — hide or show N/A)
   document.getElementById('genderBars').innerHTML = `
-    <li><span class="bar-label">Laki-laki</span><span class="bar-track"><span class="bar-fill" style="width:${lk/maxG*100}%;background:#1A56DB"></span></span><span class="bar-val">${lk}</span></li>
-    <li><span class="bar-label">Perempuan</span><span class="bar-track"><span class="bar-fill" style="width:${pr/maxG*100}%;background:#7E3AF2"></span></span><span class="bar-val">${pr}</span></li>
+    <li><span class="bar-label">Laki-laki</span><span class="bar-track"><span class="bar-fill" style="width:0%;background:#1A56DB"></span></span><span class="bar-val">—</span></li>
+    <li><span class="bar-label">Perempuan</span><span class="bar-track"><span class="bar-fill" style="width:0%;background:#7E3AF2"></span></span><span class="bar-val">—</span></li>
   `;
 }
 
 function getFiltered(){
-  const q = document.getElementById('searchInput').value.toLowerCase();
-  const p = document.getElementById('filterProgram').value;
-  const d = document.getElementById('filterDusun').value;
+  const q   = document.getElementById('searchInput').value.toLowerCase();
+  const p   = document.getElementById('filterProgram').value;
+  const ds  = document.getElementById('filterDusun').value;
+  const rw  = document.getElementById('filterRW').value;
+  const rt  = document.getElementById('filterRT').value;
   return allData.filter(r =>
-    (!q || r.nama.toLowerCase().includes(q) || r.nik.includes(q)) &&
-    (!p || r.program === p) &&
-    (!d || r.dusun === d)
+    (!q   || r.nama.toLowerCase().includes(q) || r.nik.includes(q)) &&
+    (!p   || r.program === p) &&
+    (!ds  || r.dusun === ds) &&
+    (!rw  || r.rw === rw) &&
+    (!rt  || r.rt === rt)
   );
 }
 
@@ -645,7 +879,7 @@ function renderTable(){
 
   document.getElementById('resultInfo').innerHTML =
     total > 0
-      ? `Menampilkan <strong>${total}</strong> dari <strong>${allData.length}</strong> penerima`
+      ? `Menampilkan <strong>${total.toLocaleString('id')}</strong> dari <strong>${allData.length.toLocaleString('id')}</strong> penerima`
       : '';
 
   const slice = filtered.slice((currentPage-1)*PAGE_SIZE, currentPage*PAGE_SIZE);
@@ -658,14 +892,14 @@ function renderTable(){
   }
 
   document.getElementById('tableBody').innerHTML = slice.map((r,i) => {
-    const progClass = r.program==='PKH+BPNT'||r.program==='PKH + BPNT' ? 'both' : r.program==='PKH' ? 'pkh' : 'bpnt';
+    const progClass = r.program==='PKH + BPNT' ? 'both' : r.program==='PKH' ? 'pkh' : 'bpnt';
     return `<tr>
       <td class="no-cell">${(currentPage-1)*PAGE_SIZE+i+1}</td>
       <td class="nik-cell">${r.nik}</td>
       <td class="name-cell">${r.nama}</td>
       <td style="font-size:12.5px;color:var(--muted)">${r.alamat}</td>
       <td style="text-align:center;font-size:12px">${r.rt}/${r.rw}</td>
-      <td>${r.dusun}</td>
+      <td>${r.dusun || '—'}</td>
       <td><span class="chip ${progClass}">${r.program}</span></td>
     </tr>`;
   }).join('');
@@ -686,6 +920,20 @@ function renderTable(){
 }
 
 function goPage(p){ currentPage=p; renderTable(); window.scrollTo({top:400,behavior:'smooth'}); }
+
+function exportFiltered() {
+  const data = getFiltered();
+  if (!data.length) { alert('Tidak ada data untuk di-export.'); return; }
+
+  const wsData = [
+    ['NO','NIK','NAMA','ALAMAT','RT','RW','DESA','PROGRAM','BANK','KET'],
+    ...data.map((r,i) => [i+1, r.nik, r.nama, r.alamat, r.rt, r.rw, r.dusun||'', r.program, r.bank||'', r.ket||''])
+  ];
+  const ws = XLSX.utils.aoa_to_sheet(wsData);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Data Bansos');
+  XLSX.writeFile(wb, 'Data_Bansos_Filtered.xlsx');
+}
 </script>
 </body>
 </html>
