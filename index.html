@@ -321,7 +321,8 @@
   .bar-list li .bar-track {
     flex:1; height:8px; background:#F1F4F9; border-radius:4px; overflow:hidden;
   }
-  .bar-list li .bar-fill { height:100%; border-radius:4px; transition:width .6s ease; }
+  .bar-list li .bar-fill { height:100%; border-radius:4px; width:0; transition:width .8s cubic-bezier(.22,.61,.36,1); }
+  .bar-list li .bar-fill.animate { width:var(--target-width); }
   .bar-list li .bar-val { min-width:32px; text-align:right; font-weight:600; color:var(--muted); }
 
   /* ── PAGINATION ── */
@@ -456,8 +457,8 @@
       <ul class="bar-list" id="dusunBars"></ul>
     </div>
     <div class="chart-card">
-      <h4>👥 Jenis Kelamin</h4>
-      <ul class="bar-list" id="genderBars"></ul>
+      <h4>📈 Per RW</h4>
+      <ul class="bar-list" id="rwBars"></ul>
     </div>
   </div>
 
@@ -526,6 +527,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
 // ── RW → DESA mapping ──
+// Keys are plain integer strings (no zero-padding)
 const RW_DUSUN_MAP = {
   '1': 'Dusun 1',
   '2': 'Dusun 1',
@@ -614,9 +616,11 @@ async function loadFromGitHub() {
       const bank   = String(r[8] || '');
       const ket    = String(r[9] || '');
 
-      const rt  = rtRaw ? String(rtRaw).replace(/\D/g,'').padStart(2,'0') : '';
-      const rw  = rwRaw ? String(rwRaw).replace(/\D/g,'').padStart(2,'0') : '';
-      const dusun = rwRaw ? (RW_DUSUN_MAP[rwRaw] || rwRaw) : '';
+      // Normalize to plain integer string (no zero-padding) for consistent comparison
+      const rt  = rtRaw ? String(rtRaw).replace(/\D/g,'') : '';
+      const rw  = rwRaw ? String(rwRaw).replace(/\D/g,'') : '';
+      // dusun lookup must use normalized (non-padded) rw
+      const dusun = rw ? (RW_DUSUN_MAP[rw] || '') : '';
 
       return {
         no: i+1, nik, nama, alamat, rt, rw, dusun, bank, ket, program: prog
@@ -688,11 +692,11 @@ async function mergeData() {
 
   if (!fPKH && !fBPNT) { alert('Pilih minimal satu file Excel.'); return; }
 
-  let pkhRows = fPKH  ? await readXLSXFile(fPKH)  : [];
-  let bpntRows= fBPNT ? await readXLSXFile(fBPNT) : [];
+  let pkhRows  = fPKH  ? await readXLSXFile(fPKH)  : [];
+  let bpntRows = fBPNT ? await readXLSXFile(fBPNT) : [];
 
   // Skip header row
-  if (pkhRows.length) pkhRows = pkhRows.slice(1);
+  if (pkhRows.length)  pkhRows  = pkhRows.slice(1);
   if (bpntRows.length) bpntRows = bpntRows.slice(1);
 
   const nikMap = {};
@@ -725,9 +729,9 @@ async function mergeData() {
     const bank   = String(r[8] || '');
     const ket    = String(r[9] || '');
 
-    const rt  = rtRaw ? String(rtRaw).replace(/\D/g,'').padStart(2,'0') : '';
-    const rw  = rwRaw ? String(rwRaw).replace(/\D/g,'').padStart(2,'0') : '';
-    const dusun = rwRaw ? (RW_DUSUN_MAP[String(rwRaw).replace(/\D/g,'')] || rwRaw) : '';
+    const rt  = rtRaw ? String(rtRaw).replace(/\D/g,'') : '';
+    const rw  = rwRaw ? String(rwRaw).replace(/\D/g,'') : '';
+    const dusun = rw ? (RW_DUSUN_MAP[rw] || '') : '';
 
     return { no:i+1, nik, nama, alamat, rt, rw, dusun, bank, ket, program:prog };
   });
@@ -802,7 +806,7 @@ function renderCharts(){
   const both = allData.filter(d=>d.program==='PKH + BPNT').length;
   const total= allData.length || 1;
 
-  // Donut
+  // ── Animated Donut ──
   const canvas = document.getElementById('donutCanvas');
   const ctx = canvas.getContext('2d');
   const cx=45,cy=45,r=38,ir=22;
@@ -812,21 +816,35 @@ function renderCharts(){
     {val:bpnt, color:'#0E7490'},
     {val:both, color:'#15803D'},
   ];
+
   let start = -Math.PI/2;
-  segs.forEach(s => {
-    const angle = (s.val/total) * Math.PI * 2;
+  let progress = 0;
+  const targetProgress = 1;
+  const duration = 900;
+  const startTime = performance.now();
+
+  function animateDonut(ts) {
+    progress = Math.min((ts - startTime) / duration, targetProgress);
+    ctx.clearRect(0,0,90,90);
+    let angleSum = -Math.PI/2;
+    segs.forEach(s => {
+      const segAngle = (s.val/total) * Math.PI * 2;
+      const drawnAngle = segAngle * progress;
+      ctx.beginPath();
+      ctx.moveTo(cx,cy);
+      ctx.arc(cx,cy,r,angleSum,angleSum+drawnAngle);
+      ctx.closePath();
+      ctx.fillStyle = s.color;
+      ctx.fill();
+      angleSum += segAngle;
+    });
     ctx.beginPath();
-    ctx.moveTo(cx,cy);
-    ctx.arc(cx,cy,r,start,start+angle);
-    ctx.closePath();
-    ctx.fillStyle = s.color;
+    ctx.arc(cx,cy,ir,0,Math.PI*2);
+    ctx.fillStyle='#fff';
     ctx.fill();
-    start += angle;
-  });
-  ctx.beginPath();
-  ctx.arc(cx,cy,ir,0,Math.PI*2);
-  ctx.fillStyle='#fff';
-  ctx.fill();
+    if (progress < targetProgress) requestAnimationFrame(animateDonut);
+  }
+  requestAnimationFrame(animateDonut);
 
   document.getElementById('donutLegend').innerHTML = `
     <li><span class="dot" style="background:#C0831A"></span>PKH <span>${pkh}</span></li>
@@ -834,7 +852,7 @@ function renderCharts(){
     <li><span class="dot" style="background:#15803D"></span>PKH+BPNT <span>${both}</span></li>
   `;
 
-  // Desa bars
+  // ── Animate dusun bars ──
   const dusunCount = {};
   allData.forEach(d => {
     const key = d.dusun || 'Lainnya';
@@ -845,15 +863,36 @@ function renderCharts(){
   document.getElementById('dusunBars').innerHTML = sortedDusun.map(([d,n]) => `
     <li>
       <span class="bar-label">${d||'—'}</span>
-      <span class="bar-track"><span class="bar-fill" style="width:${n/maxD*100}%;background:#1A56DB"></span></span>
+      <span class="bar-track"><span class="bar-fill" style="--target-width:${n/maxD*100}%;background:#1A56DB"></span></span>
       <span class="bar-val">${n}</span>
     </li>`).join('');
+  // Trigger animation after render
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.querySelectorAll('#dusunBars .bar-fill').forEach(el => el.classList.add('animate'));
+    });
+  });
 
-  // Gender bars (no JK column in this data — hide or show N/A)
-  document.getElementById('genderBars').innerHTML = `
-    <li><span class="bar-label">Laki-laki</span><span class="bar-track"><span class="bar-fill" style="width:0%;background:#1A56DB"></span></span><span class="bar-val">—</span></li>
-    <li><span class="bar-label">Perempuan</span><span class="bar-track"><span class="bar-fill" style="width:0%;background:#7E3AF2"></span></span><span class="bar-val">—</span></li>
-  `;
+  // ── Animate RW bars ──
+  const rwCount = {};
+  allData.forEach(d => {
+    if (!d.rw) return;
+    const key = 'RW ' + d.rw;
+    rwCount[key] = (rwCount[key]||0)+1;
+  });
+  const sortedRW = Object.entries(rwCount).sort((a,b)=>b[1]-a[1]);
+  const maxRW = sortedRW[0]?.[1] || 1;
+  document.getElementById('rwBars').innerHTML = sortedRW.map(([r,n]) => `
+    <li>
+      <span class="bar-label">${r||'—'}</span>
+      <span class="bar-track"><span class="bar-fill" style="--target-width:${n/maxRW*100}%;background:#7E3AF2"></span></span>
+      <span class="bar-val">${n}</span>
+    </li>`).join('');
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.querySelectorAll('#rwBars .bar-fill').forEach(el => el.classList.add('animate'));
+    });
+  });
 }
 
 function getFiltered(){
@@ -866,8 +905,8 @@ function getFiltered(){
     (!q   || r.nama.toLowerCase().includes(q) || r.nik.includes(q)) &&
     (!p   || r.program === p) &&
     (!ds  || r.dusun === ds) &&
-    (!rw  || r.rw === rw) &&
-    (!rt  || r.rt === rt)
+    (!rw  || String(r.rw) === rw) &&
+    (!rt  || String(r.rt) === rt)
   );
 }
 
