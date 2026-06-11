@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Penerima Bansos – Desa Kasomalang Kulon</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+  :root {
+    --bg:       #F7F8FA;
+    --surface:  #FFFFFF;
+    --border:   #E8ECF0;
+    --text:     #1C2B3A;
+    --muted:    #7A8799;
+    --pkh:      #C0831A;
+    --pkh-bg:   #FEF6E7;
+    --bpnt:     #0E7490;
+    --bpnt-bg:  #E0F6FC;
+    --both:     #15803D;
+    --both-bg:  #DCFCE7;
+    --accent:   #1A56DB;
+    --accent2:  #7E3AF2;
+    --header-h: 72px;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top:0; z-index:100;
+    height: var(--header-h);
+  }
+  .header-inner {
+    max-width: 1200px; margin: 0 auto;
+    height: 100%; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo-area { display:flex; align-items:center; gap:14px; }
+  .logo-shield {
+    width: 46px; height: 46px;
+    background: linear-gradient(135deg, #1A56DB 0%, #7E3AF2 100%);
+    border-radius: 12px;
+    display: flex; align-items:center; justify-content:center;
+    font-size: 22px;
+  }
+  .logo-text h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px; font-weight: 700; color: var(--text);
+    line-height: 1.2;
+  }
+  .logo-text p { font-size: 11px; color: var(--muted); }
+  .header-badge {
+    font-size: 11px; font-weight: 600;
+    background: #EFF6FF; color: var(--accent);
+    border: 1px solid #BFDBFE;
+    padding: 5px 12px; border-radius: 20px;
+    letter-spacing: .3px;
+  }
+
+  /* ── HERO BANNER ── */
+  .hero {
+    background: linear-gradient(135deg, #1A56DB 0%, #7E3AF2 55%, #0E7490 100%);
+    padding: 48px 24px 40px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items:center; gap:6px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1px;
+    color: rgba(255,255,255,.75);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .hero h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 800; color: #fff;
+    line-height: 1.2; margin-bottom: 10px;
+  }
+  .hero p {
+    color: rgba(255,255,255,.75);
+    font-size: 14px; max-width: 520px; margin: 0 auto 28px;
+    line-height: 1.6;
+  }
+
+  /* ── STAT CARDS ── */
+  .stats-row {
+    display: flex; gap: 12px; justify-content:center; flex-wrap:wrap;
+    position:relative; z-index:2;
+  }
+  .stat-card {
+    background: rgba(255,255,255,.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 14px;
+    padding: 16px 24px; text-align:center; min-width: 130px;
+  }
+  .stat-card .num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 28px; font-weight: 800; color:#fff;
+    line-height:1;
+  }
+  .stat-card .lbl { font-size: 11px; color: rgba(255,255,255,.7); margin-top:4px; }
+
+  /* ── BADGE chips ── */
+  .chip {
+    display: inline-flex; align-items:center; gap:5px;
+    padding: 4px 10px; border-radius: 20px;
+    font-size: 11.5px; font-weight: 600; white-space: nowrap;
+  }
+  .chip.pkh    { background:var(--pkh-bg); color:var(--pkh); }
+  .chip.bpnt   { background:var(--bpnt-bg); color:var(--bpnt); }
+  .chip.both   { background:var(--both-bg); color:var(--both); }
+  .chip::before { content:'●'; font-size:8px; }
+
+  /* ── MAIN CONTENT ── */
+  .container { max-width:1200px; margin:0 auto; padding: 32px 24px 60px; }
+
+  /* ── LEGEND ── */
+  .legend-row {
+    display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;
+    align-items:center;
+  }
+  .legend-label { font-size:12px; color:var(--muted); font-weight:500; margin-right:4px; }
+
+  /* ── SEARCH BAR ── */
+  .search-bar {
+    display: flex; gap:10px; margin-bottom:24px; flex-wrap:wrap;
+  }
+  .search-wrap {
+    flex:1; min-width:220px;
+    position:relative;
+  }
+  .search-wrap input {
+    width:100%; padding: 11px 16px 11px 42px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px; font-size:14px;
+    font-family: inherit; background:var(--surface);
+    color: var(--text); outline:none;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .search-wrap input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(26,86,219,.12);
+  }
+  .search-wrap .ico {
+    position:absolute; left:14px; top:50%; transform:translateY(-50%);
+    color:var(--muted); font-size:16px; pointer-events:none;
+  }
+  select.filter-sel {
+    padding: 11px 14px; border: 1.5px solid var(--border);
+    border-radius:10px; font-size:13px; font-family:inherit;
+    background:var(--surface); color:var(--text); cursor:pointer; outline:none;
+    transition: border-color .2s;
+  }
+  select.filter-sel:focus { border-color: var(--accent); }
+
+  /* ── RESULT COUNT ── */
+  .result-info {
+    font-size: 13px; color:var(--muted); margin-bottom:14px;
+  }
+  .result-info strong { color:var(--text); }
+
+  /* ── TABLE ── */
+  .table-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  }
+  table { width:100%; border-collapse:collapse; }
+  thead tr { background: #F1F4F9; }
+  th {
+    padding: 12px 16px; text-align:left;
+    font-size: 11px; font-weight: 700; letter-spacing:.6px;
+    text-transform: uppercase; color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  td {
+    padding: 13px 16px; font-size: 13.5px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #FAFBFD; }
+
+  .nik-cell { font-family: monospace; font-size:12.5px; color:var(--muted); }
+  .name-cell { font-weight: 600; color:var(--text); }
+  .no-cell { color:var(--muted); font-size:12px; text-align:center; }
+
+  /* ── EMPTY STATE ── */
+  .empty {
+    text-align:center; padding: 60px 20px;
+    color: var(--muted);
+  }
+  .empty .ico { font-size:40px; margin-bottom:12px; }
+  .empty p { font-size:14px; }
+
+  /* ── UPLOAD PANEL ── */
+  .upload-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 24px;
+    margin-bottom: 28px;
+  }
+  .upload-section h3 {
+    font-size:15px; font-weight:700; margin-bottom:4px;
+  }
+  .upload-section p.sub { font-size:12.5px; color:var(--muted); margin-bottom:18px; }
+  .upload-cols { display:flex; gap:12px; flex-wrap:wrap; }
+  .upload-box {
+    flex:1; min-width:200px;
+    border: 2px dashed var(--border);
+    border-radius:12px;
+    padding: 20px 16px; text-align:center;
+    cursor:pointer; transition: border-color .2s, background .2s;
+    position:relative; overflow:hidden;
+  }
+  .upload-box:hover { border-color:var(--accent); background:#F5F8FF; }
+  .upload-box input[type=file] {
+    position:absolute; inset:0; opacity:0; cursor:pointer;
+  }
+  .upload-box .up-icon { font-size:26px; margin-bottom:6px; }
+  .upload-box .up-label { font-size:13px; font-weight:600; }
+  .upload-box .up-sub { font-size:11px; color:var(--muted); margin-top:3px; }
+  .upload-box.pkh-box { border-color: #F3D08B; }
+  .upload-box.bpnt-box { border-color: #7EC8D3; }
+  .btn-merge {
+    margin-top:14px;
+    background: linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#fff; border:none; padding:11px 28px;
+    border-radius:10px; font-size:14px; font-weight:600;
+    font-family:inherit; cursor:pointer;
+    transition: opacity .2s, transform .1s;
+  }
+  .btn-merge:hover { opacity:.9; }
+  .btn-merge:active { transform:scale(.98); }
+
+  /* ── CHARTS ── */
+  .charts-grid {
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap:16px; margin-bottom:28px;
+  }
+  .chart-card {
+    background:var(--surface);
+    border: 1px solid var(--border);
+    border-radius:14px; padding:22px;
+  }
+  .chart-card h4 { font-size:13px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; margin-bottom:16px; }
+
+  /* Donut chart via conic-gradient */
+  .donut-wrap { display:flex; align-items:center; gap:20px; }
+  .donut {
+    width:90px; height:90px; border-radius:50%;
+    flex-shrink:0;
+  }
+  .donut-legend { flex:1; }
+  .donut-legend li {
+    list-style:none; display:flex; align-items:center; gap:8px;
+    font-size:12.5px; margin-bottom:7px;
+  }
+  .donut-legend li .dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+  .donut-legend li span { margin-left:auto; font-weight:700; }
+
+  /* Bar chart via CSS */
+  .bar-list { list-style:none; }
+  .bar-list li {
+    display:flex; align-items:center; gap:10px;
+    font-size:12.5px; margin-bottom:9px;
+  }
+  .bar-list li .bar-label { min-width:80px; color:var(--text); }
+  .bar-list li .bar-track {
+    flex:1; height:8px; background:#F1F4F9; border-radius:4px; overflow:hidden;
+  }
+  .bar-list li .bar-fill { height:100%; border-radius:4px; transition:width .6s ease; }
+  .bar-list li .bar-val { min-width:32px; text-align:right; font-weight:600; color:var(--muted); }
+
+  /* ── PAGINATION ── */
+  .pagination {
+    display:flex; justify-content:center; align-items:center;
+    gap:6px; margin-top:20px; flex-wrap:wrap;
+  }
+  .pg-btn {
+    width:34px; height:34px; border-radius:8px;
+    border: 1.5px solid var(--border); background:var(--surface);
+    font-size:13px; font-family:inherit; cursor:pointer; color:var(--text);
+    transition: all .15s;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .pg-btn:hover { border-color:var(--accent); color:var(--accent); }
+  .pg-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
+  .pg-btn:disabled { opacity:.35; cursor:default; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text);
+    padding: 28px 24px;
+    text-align:center;
+    font-size: 12.5px; color: rgba(255,255,255,.45);
+  }
+  footer strong { color:rgba(255,255,255,.7); }
+
+  @media(max-width:640px){
+    .hero { padding:32px 16px 28px; }
+    .container { padding:20px 16px 40px; }
+    th,td { padding:10px 12px; }
+    .search-bar { flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo-area">
+      <div class="logo-shield">🏛️</div>
+      <div class="logo-text">
+        <h1>Desa Kasomalang Kulon</h1>
+        <p>Kec. Kasomalang · Kab. Subang</p>
+      </div>
+    </div>
+    <div class="header-badge">Data Bansos 2025</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">📋 Transparansi Pemerintah Desa</div>
+  <h2>Data Penerima Bantuan Sosial</h2>
+  <p>PKH & BPNT Tahun 2025 — informasi resmi yang dapat diakses oleh seluruh warga</p>
+  <div class="stats-row" id="statsRow">
+    <div class="stat-card"><div class="num" id="statTotal">—</div><div class="lbl">Total Penerima</div></div>
+    <div class="stat-card"><div class="num" id="statPKH">—</div><div class="lbl">PKH Saja</div></div>
+    <div class="stat-card"><div class="num" id="statBPNT">—</div><div class="lbl">BPNT Saja</div></div>
+    <div class="stat-card"><div class="num" id="statBoth">—</div><div class="lbl">PKH + BPNT</div></div>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- UPLOAD PANEL -->
+  <div class="upload-section">
+    <h3>📂 Upload Data Excel</h3>
+    <p class="sub">Upload dua file Excel (PKH dan BPNT). Sistem akan otomatis menggabungkan dan mendeteksi penerima ganda.</p>
+    <div class="upload-cols">
+      <div class="upload-box pkh-box">
+        <input type="file" id="filePKH" accept=".xlsx,.xls">
+        <div class="up-icon">📄</div>
+        <div class="up-label">File PKH</div>
+        <div class="up-sub" id="namePKH">Pilih file .xlsx</div>
+      </div>
+      <div class="upload-box bpnt-box">
+        <input type="file" id="fileBPNT" accept=".xlsx,.xls">
+        <div class="up-icon">📄</div>
+        <div class="up-label">File BPNT</div>
+        <div class="up-sub" id="nameBPNT">Pilih file .xlsx</div>
+      </div>
+    </div>
+    <button class="btn-merge" onclick="mergeData()">⚡ Gabungkan & Tampilkan Data</button>
+  </div>
+
+  <!-- CHARTS -->
+  <div class="charts-grid" id="chartsGrid" style="display:none">
+    <div class="chart-card">
+      <h4>📊 Distribusi Program</h4>
+      <div class="donut-wrap">
+        <canvas id="donutCanvas" width="90" height="90" style="flex-shrink:0"></canvas>
+        <ul class="donut-legend" id="donutLegend"></ul>
+      </div>
+    </div>
+    <div class="chart-card">
+      <h4>📍 Per Dusun</h4>
+      <ul class="bar-list" id="dusunBars"></ul>
+    </div>
+    <div class="chart-card">
+      <h4>👥 Jenis Kelamin</h4>
+      <ul class="bar-list" id="genderBars"></ul>
+    </div>
+  </div>
+
+  <!-- LEGEND + SEARCH -->
+  <div class="legend-row">
+    <span class="legend-label">Keterangan:</span>
+    <span class="chip pkh">PKH</span>
+    <span class="chip bpnt">BPNT</span>
+    <span class="chip both">PKH + BPNT</span>
+  </div>
+
+  <div class="search-bar">
+    <div class="search-wrap">
+      <span class="ico">🔍</span>
+      <input type="text" id="searchInput" placeholder="Cari nama atau NIK…" oninput="renderTable()">
+    </div>
+    <select class="filter-sel" id="filterProgram" onchange="renderTable()">
+      <option value="">Semua Program</option>
+      <option value="PKH">PKH Saja</option>
+      <option value="BPNT">BPNT Saja</option>
+      <option value="PKH + BPNT">PKH + BPNT</option>
+    </select>
+    <select class="filter-sel" id="filterDusun" onchange="renderTable()">
+      <option value="">Semua Dusun</option>
+    </select>
+  </div>
+
+  <div class="result-info" id="resultInfo"></div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:46px">No</th>
+          <th>NIK</th>
+          <th>Nama</th>
+          <th>Alamat</th>
+          <th>RT/RW</th>
+          <th>Dusun</th>
+          <th>Program</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr><td colspan="7"><div class="empty"><div class="ico">📭</div><p>Upload file Excel PKH dan BPNT untuk menampilkan data.</p></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pagination" id="pagination"></div>
+
+</div>
+
+<footer>
+  <strong>Desa Kasomalang Kulon</strong> · Kecamatan Kasomalang · Kabupaten Subang<br>
+  Data Penerima Bansos PKH &amp; BPNT 2025 · Dikelola oleh Pemerintah Desa
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+let allData = [];
+let currentPage = 1;
+const PAGE_SIZE = 20;
+
+// ── File label ──
+document.getElementById('filePKH').addEventListener('change', function(){
+  document.getElementById('namePKH').textContent = this.files[0]?.name || 'Pilih file .xlsx';
+});
+document.getElementById('fileBPNT').addEventListener('change', function(){
+  document.getElementById('nameBPNT').textContent = this.files[0]?.name || 'Pilih file .xlsx';
+});
+
+// ── Normalize column keys ──
+function normalizeRow(row) {
+  const out = {};
+  for (const k in row) {
+    const nk = k.trim().toUpperCase()
+      .replace(/\s+/g,'_')
+      .replace(/\//,'_')
+      .replace('KABUPATEN_KOTA','KAB_KOTA');
+    out[nk] = typeof row[k] === 'string' ? row[k].trim() : row[k];
+  }
+  return out;
+}
+
+function readXLSX(file) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const wb = XLSX.read(e.target.result, {type:'binary'});
+      const ws = wb.Sheets[wb.SheetNames[0]];
+      const rows = XLSX.utils.sheet_to_json(ws, {defval:''});
+      resolve(rows.map(normalizeRow));
+    };
+    reader.readAsBinaryString(file);
+  });
+}
+
+async function mergeData() {
+  const fPKH  = document.getElementById('filePKH').files[0];
+  const fBPNT = document.getElementById('fileBPNT').files[0];
+
+  if (!fPKH && !fBPNT) { alert('Pilih minimal satu file Excel.'); return; }
+
+  let pkhRows = fPKH  ? await readXLSX(fPKH)  : [];
+  let bpntRows= fBPNT ? await readXLSX(fBPNT) : [];
+
+  // Index by NIK
+  const nikMap = {};
+
+  pkhRows.forEach(r => {
+    const nik = String(r.NIK || '').replace(/\s/g,'');
+    if (!nik) return;
+    nikMap[nik] = {...r, _PKH:true, _BPNT:false};
+  });
+
+  bpntRows.forEach(r => {
+    const nik = String(r.NIK || '').replace(/\s/g,'');
+    if (!nik) return;
+    if (nikMap[nik]) {
+      nikMap[nik]._BPNT = true; // double
+    } else {
+      nikMap[nik] = {...r, _PKH:false, _BPNT:true};
+    }
+  });
+
+  allData = Object.values(nikMap).map((r,i) => {
+    let prog = '';
+    if (r._PKH && r._BPNT) prog = 'PKH + BPNT';
+    else if (r._PKH)         prog = 'PKH';
+    else                     prog = 'BPNT';
+
+    return {
+      no:    i+1,
+      nik:   String(r.NIK||''),
+      nama:  r.NAMA || r.NAMA_LENGKAP || '',
+      alamat:r.ALAMAT || '',
+      rt:    String(r.RT||'').padStart(3,'0'),
+      rw:    String(r.RW||'').padStart(3,'0'),
+      dusun: r.DUSUN || r.DUSUN_KAMPUNG || '',
+      kel:   r.DESA_KELURAHAN || r.KELURAHAN || '',
+      jk:    r.JENIS_KELAMIN || r.JK || '',
+      program: prog
+    };
+  });
+
+  updateStats();
+  updateDusunFilter();
+  renderCharts();
+  renderTable();
+  document.getElementById('chartsGrid').style.display = 'grid';
+}
+
+function updateStats(){
+  const pkh  = allData.filter(d=>d.program==='PKH').length;
+  const bpnt = allData.filter(d=>d.program==='BPNT').length;
+  const both = allData.filter(d=>d.program==='PKH + BPNT').length;
+  document.getElementById('statTotal').textContent = allData.length.toLocaleString('id');
+  document.getElementById('statPKH').textContent   = pkh.toLocaleString('id');
+  document.getElementById('statBPNT').textContent  = bpnt.toLocaleString('id');
+  document.getElementById('statBoth').textContent  = both.toLocaleString('id');
+}
+
+function updateDusunFilter(){
+  const sel = document.getElementById('filterDusun');
+  sel.innerHTML = '<option value="">Semua Dusun</option>';
+  const dusuns = [...new Set(allData.map(d=>d.dusun).filter(Boolean))].sort();
+  dusuns.forEach(d => {
+    const o = document.createElement('option');
+    o.value = d; o.textContent = d;
+    sel.appendChild(o);
+  });
+}
+
+function renderCharts(){
+  const pkh  = allData.filter(d=>d.program==='PKH').length;
+  const bpnt = allData.filter(d=>d.program==='BPNT').length;
+  const both = allData.filter(d=>d.program==='PKH + BPNT').length;
+  const total= allData.length || 1;
+
+  // Donut via canvas
+  const canvas = document.getElementById('donutCanvas');
+  const ctx = canvas.getContext('2d');
+  const cx=45,cy=45,r=38,ir=22;
+  ctx.clearRect(0,0,90,90);
+  const segs = [
+    {val:pkh,  color:'#C0831A'},
+    {val:bpnt, color:'#0E7490'},
+    {val:both, color:'#15803D'},
+  ];
+  let start = -Math.PI/2;
+  segs.forEach(s => {
+    const angle = (s.val/total) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,r,start,start+angle);
+    ctx.closePath();
+    ctx.fillStyle = s.color;
+    ctx.fill();
+    start += angle;
+  });
+  ctx.beginPath();
+  ctx.arc(cx,cy,ir,0,Math.PI*2);
+  ctx.fillStyle='#fff';
+  ctx.fill();
+
+  document.getElementById('donutLegend').innerHTML = `
+    <li><span class="dot" style="background:#C0831A"></span>PKH <span>${pkh}</span></li>
+    <li><span class="dot" style="background:#0E7490"></span>BPNT <span>${bpnt}</span></li>
+    <li><span class="dot" style="background:#15803D"></span>PKH+BPNT <span>${both}</span></li>
+  `;
+
+  // Dusun bars
+  const dusunCount = {};
+  allData.forEach(d => { if(d.dusun) dusunCount[d.dusun]=(dusunCount[d.dusun]||0)+1; });
+  const sortedDusun = Object.entries(dusunCount).sort((a,b)=>b[1]-a[1]);
+  const maxD = sortedDusun[0]?.[1] || 1;
+  document.getElementById('dusunBars').innerHTML = sortedDusun.map(([d,n]) => `
+    <li>
+      <span class="bar-label">${d||'—'}</span>
+      <span class="bar-track"><span class="bar-fill" style="width:${n/maxD*100}%;background:#1A56DB"></span></span>
+      <span class="bar-val">${n}</span>
+    </li>`).join('');
+
+  // Gender bars
+  const lk = allData.filter(d=>/laki/i.test(d.jk)).length;
+  const pr = allData.filter(d=>/perempuan/i.test(d.jk)).length;
+  const maxG = Math.max(lk,pr,1);
+  document.getElementById('genderBars').innerHTML = `
+    <li><span class="bar-label">Laki-laki</span><span class="bar-track"><span class="bar-fill" style="width:${lk/maxG*100}%;background:#1A56DB"></span></span><span class="bar-val">${lk}</span></li>
+    <li><span class="bar-label">Perempuan</span><span class="bar-track"><span class="bar-fill" style="width:${pr/maxG*100}%;background:#7E3AF2"></span></span><span class="bar-val">${pr}</span></li>
+  `;
+}
+
+function getFiltered(){
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const p = document.getElementById('filterProgram').value;
+  const d = document.getElementById('filterDusun').value;
+  return allData.filter(r =>
+    (!q || r.nama.toLowerCase().includes(q) || r.nik.includes(q)) &&
+    (!p || r.program === p) &&
+    (!d || r.dusun === d)
+  );
+}
+
+function renderTable(){
+  const filtered = getFiltered();
+  const total = filtered.length;
+  const pages = Math.ceil(total/PAGE_SIZE) || 1;
+  if (currentPage > pages) currentPage = 1;
+
+  document.getElementById('resultInfo').innerHTML =
+    total > 0
+      ? `Menampilkan <strong>${total}</strong> dari <strong>${allData.length}</strong> penerima`
+      : '';
+
+  const slice = filtered.slice((currentPage-1)*PAGE_SIZE, currentPage*PAGE_SIZE);
+
+  if (!slice.length) {
+    document.getElementById('tableBody').innerHTML =
+      `<tr><td colspan="7"><div class="empty"><div class="ico">🔍</div><p>Data tidak ditemukan.</p></div></td></tr>`;
+    document.getElementById('pagination').innerHTML = '';
+    return;
+  }
+
+  document.getElementById('tableBody').innerHTML = slice.map((r,i) => {
+    const progClass = r.program==='PKH+BPNT'||r.program==='PKH + BPNT' ? 'both' : r.program==='PKH' ? 'pkh' : 'bpnt';
+    return `<tr>
+      <td class="no-cell">${(currentPage-1)*PAGE_SIZE+i+1}</td>
+      <td class="nik-cell">${r.nik}</td>
+      <td class="name-cell">${r.nama}</td>
+      <td style="font-size:12.5px;color:var(--muted)">${r.alamat}</td>
+      <td style="text-align:center;font-size:12px">${r.rt}/${r.rw}</td>
+      <td>${r.dusun}</td>
+      <td><span class="chip ${progClass}">${r.program}</span></td>
+    </tr>`;
+  }).join('');
+
+  // Pagination
+  const pag = document.getElementById('pagination');
+  let btns = '';
+  btns += `<button class="pg-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>‹</button>`;
+  for (let i=1;i<=pages;i++){
+    if (pages<=7||i===1||i===pages||Math.abs(i-currentPage)<=1) {
+      btns += `<button class="pg-btn ${i===currentPage?'active':''}" onclick="goPage(${i})">${i}</button>`;
+    } else if(Math.abs(i-currentPage)===2){
+      btns += `<span style="padding:0 4px;color:var(--muted)">…</span>`;
+    }
+  }
+  btns += `<button class="pg-btn" onclick="goPage(${currentPage+1})" ${currentPage===pages?'disabled':''}>›</button>`;
+  pag.innerHTML = btns;
+}
+
+function goPage(p){ currentPage=p; renderTable(); window.scrollTo({top:400,behavior:'smooth'}); }
+</script>
+</body>
+</html>
