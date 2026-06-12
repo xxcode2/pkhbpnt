@@ -3,976 +3,879 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Penerima Bansos – Desa Kasomalang Kulon</title>
+<title>Data Bansos 2026 · Desa Kasomalang Kulon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+:root {
+  --bg: #F0F4F8;
+  --surface: #FFFFFF;
+  --surface2: #F7F9FC;
+  --border: #E2E8F0;
+  --border2: #CBD5E1;
+  --text: #0F172A;
+  --text2: #475569;
+  --text3: #94A3B8;
+  --blue: #3B82F6;
+  --blue-dark: #1D4ED8;
+  --blue-dim: #EFF6FF;
+  --cyan: #0EA5E9;
+  --cyan-dim: #E0F2FE;
+  --amber: #F59E0B;
+  --amber-dim: #FFFBEB;
+  --green: #10B981;
+  --green-dim: #ECFDF5;
+  --red: #EF4444;
+  --sidebar-w: 260px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;}
 
-  :root {
-    --bg:       #F7F8FA;
-    --surface:  #FFFFFF;
-    --border:   #E8ECF0;
-    --text:     #1C2B3A;
-    --muted:    #7A8799;
-    --pkh:      #C0831A;
-    --pkh-bg:   #FEF6E7;
-    --bpnt:     #0E7490;
-    --bpnt-bg:  #E0F6FC;
-    --both:     #15803D;
-    --both-bg:  #DCFCE7;
-    --accent:   #1A56DB;
-    --accent2:  #7E3AF2;
-    --header-h: 72px;
-  }
+/* ─── TOP NAV ─── */
+.topnav {
+  position:sticky;top:0;z-index:200;
+  background:rgba(15,23,42,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  height:56px;
+  display:flex;align-items:center;
+  padding:0 32px;gap:16px;
+}
+.nav-brand {
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;
+}
+.nav-logo {
+  width:32px;height:32px;
+  background:linear-gradient(135deg,#3B82F6,#8B5CF6);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+  flex-shrink:0;
+}
+.nav-title {
+  font-family:'Sora',sans-serif;
+  font-size:13px;font-weight:700;
+  color:#fff;line-height:1.2;
+}
+.nav-sub {font-size:10.5px;color:rgba(255,255,255,0.45);font-weight:400;}
+.nav-spacer{flex:1;}
+.nav-pill {
+  display:flex;align-items:center;gap:6px;
+  background:rgba(16,185,129,0.15);
+  border:1px solid rgba(16,185,129,0.3);
+  color:#34D399;
+  font-size:11px;font-weight:600;
+  padding:5px 12px;border-radius:20px;
+  letter-spacing:0.3px;
+}
+.nav-pill::before{content:'';width:6px;height:6px;background:#34D399;border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
 
-  * { margin:0; padding:0; box-sizing:border-box; }
+/* ─── HERO ─── */
+.hero {
+  background:linear-gradient(160deg,#0F172A 0%,#1E293B 60%,#0F2850 100%);
+  padding:48px 32px 0;
+  position:relative;overflow:hidden;
+}
+.hero-grid {
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto;
+  align-items:end;gap:40px;
+}
+.hero-eyebrow {
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:600;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--blue);
+  margin-bottom:16px;
+}
+.hero-eyebrow span {
+  display:inline-block;width:20px;height:1px;background:var(--blue);
+}
+.hero h1 {
+  font-family:'Sora',sans-serif;
+  font-size:clamp(26px,3.5vw,42px);
+  font-weight:800;color:#F8FAFF;
+  line-height:1.15;margin-bottom:10px;
+  letter-spacing:-0.5px;
+}
+.hero h1 em {
+  font-style:normal;
+  background:linear-gradient(90deg,#60A5FA,#818CF8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-desc {
+  color:rgba(248,250,255,0.5);
+  font-size:13.5px;line-height:1.7;
+  max-width:480px;margin-bottom:36px;
+}
+.hero-stats {
+  display:flex;gap:0;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;
+  overflow:hidden;
+  margin-bottom:-1px;
+}
+.hstat {
+  flex:1;padding:20px 24px;
+  border-right:1px solid rgba(255,255,255,0.07);
+  position:relative;
+}
+.hstat:last-child{border-right:none;}
+.hstat-num {
+  font-family:'Sora',sans-serif;
+  font-size:32px;font-weight:800;
+  line-height:1;margin-bottom:4px;
+  color:#fff;
+}
+.hstat-num.blue{color:#60A5FA;}
+.hstat-num.cyan{color:#38BDF8;}
+.hstat-num.green{color:#34D399;}
+.hstat-lbl {font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:0.5px;font-weight:500;}
+.hstat-bar {
+  position:absolute;bottom:0;left:0;right:0;
+  height:2px;
+}
+.hstat-bar.blue{background:linear-gradient(90deg,#3B82F6,transparent);}
+.hstat-bar.cyan{background:linear-gradient(90deg,#0EA5E9,transparent);}
+.hstat-bar.green{background:linear-gradient(90deg,#10B981,transparent);}
+.hstat-bar.amber{background:linear-gradient(90deg,#F59E0B,transparent);}
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-  }
+.hero-visual {
+  padding-bottom:32px;
+  display:flex;align-items:flex-end;gap:4px;
+}
+.hero-bar-wrap {
+  display:flex;flex-direction:column-reverse;align-items:center;gap:6px;
+}
+.hero-bar {
+  width:36px;border-radius:6px 6px 0 0;
+  transition:height 1.2s cubic-bezier(.22,.61,.36,1);
+}
+.hero-bar-lbl {font-size:10px;color:rgba(255,255,255,0.3);font-weight:500;}
 
-  /* ── HEADER ── */
-  header {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    position: sticky; top:0; z-index:100;
-    height: var(--header-h);
-  }
-  .header-inner {
-    max-width: 1200px; margin: 0 auto;
-    height: 100%; padding: 0 24px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .logo-area { display:flex; align-items:center; gap:14px; }
-  .logo-shield {
-    width: 46px; height: 46px;
-    background: linear-gradient(135deg, #1A56DB 0%, #7E3AF2 100%);
-    border-radius: 12px;
-    display: flex; align-items:center; justify-content:center;
-    font-size: 22px;
-  }
-  .logo-text h1 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 15px; font-weight: 700; color: var(--text);
-    line-height: 1.2;
-  }
-  .logo-text p { font-size: 11px; color: var(--muted); }
-  .header-badge {
-    font-size: 11px; font-weight: 600;
-    background: #EFF6FF; color: var(--accent);
-    border: 1px solid #BFDBFE;
-    padding: 5px 12px; border-radius: 20px;
-    letter-spacing: .3px;
-  }
+/* ─── MAIN LAYOUT ─── */
+.layout {
+  max-width:1280px;margin:0 auto;
+  display:grid;
+  grid-template-columns:var(--sidebar-w) 1fr;
+  gap:24px;
+  padding:24px 32px 60px;
+  align-items:start;
+}
 
-  /* ── HERO BANNER ── */
-  .hero {
-    background: linear-gradient(135deg, #1A56DB 0%, #7E3AF2 55%, #0E7490 100%);
-    padding: 48px 24px 40px;
-    text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content:'';
-    position:absolute; inset:0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-  .hero-eyebrow {
-    display: inline-flex; align-items:center; gap:6px;
-    font-size: 12px; font-weight: 600; letter-spacing: 1px;
-    color: rgba(255,255,255,.75);
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-  .hero h2 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(22px, 4vw, 36px);
-    font-weight: 800; color: #fff;
-    line-height: 1.2; margin-bottom: 10px;
-  }
-  .hero p {
-    color: rgba(255,255,255,.75);
-    font-size: 14px; max-width: 520px; margin: 0 auto 28px;
-    line-height: 1.6;
-  }
+/* ─── SIDEBAR ─── */
+.sidebar {
+  position:sticky;top:72px;
+  display:flex;flex-direction:column;gap:12px;
+}
+.scard {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+}
+.scard-head {
+  padding:14px 18px;
+  border-bottom:1px solid var(--border);
+  font-size:11px;font-weight:700;
+  letter-spacing:0.8px;text-transform:uppercase;
+  color:var(--text3);
+  display:flex;align-items:center;gap:7px;
+}
+.scard-body {padding:14px 18px;}
+.filter-group {margin-bottom:14px;}
+.filter-group:last-child{margin-bottom:0;}
+.filter-label {
+  font-size:11px;font-weight:600;
+  color:var(--text3);text-transform:uppercase;
+  letter-spacing:0.6px;margin-bottom:6px;
+  display:block;
+}
+.filter-sel, .search-input {
+  width:100%;
+  padding:9px 12px;
+  border:1.5px solid var(--border);
+  border-radius:10px;
+  font-size:13px;font-family:'DM Sans',sans-serif;
+  background:var(--surface2);color:var(--text);
+  outline:none;
+  transition:border-color .18s,box-shadow .18s;
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394A3B8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 10px center;
+  padding-right:28px;
+  cursor:pointer;
+}
+.filter-sel:focus,.search-input:focus {
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(59,130,246,0.12);
+}
+.filter-sel:disabled{opacity:0.45;cursor:not-allowed;}
+.search-input {
+  background-image:none;padding-right:12px;padding-left:36px;
+  cursor:text;
+}
+.search-wrap {position:relative;}
+.search-ico {
+  position:absolute;left:11px;top:50%;transform:translateY(-50%);
+  font-size:14px;pointer-events:none;color:var(--text3);
+}
 
-  /* ── STAT CARDS ── */
-  .stats-row {
-    display: flex; gap: 12px; justify-content:center; flex-wrap:wrap;
-    position:relative; z-index:2;
-  }
-  .stat-card {
-    background: rgba(255,255,255,.15);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,.2);
-    border-radius: 14px;
-    padding: 16px 24px; text-align:center; min-width: 130px;
-  }
-  .stat-card .num {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 28px; font-weight: 800; color:#fff;
-    line-height:1;
-  }
-  .stat-card .lbl { font-size: 11px; color: rgba(255,255,255,.7); margin-top:4px; }
+.prog-pills {
+  display:flex;flex-direction:column;gap:6px;
+}
+.prog-pill {
+  display:flex;align-items:center;gap:10px;
+  padding:8px 12px;border-radius:10px;
+  border:1.5px solid var(--border);
+  cursor:pointer;transition:all .15s;
+  background:var(--surface2);
+  font-size:13px;font-weight:500;
+  color:var(--text2);
+  user-select:none;
+}
+.prog-pill:hover{border-color:var(--blue);color:var(--blue);}
+.prog-pill.active-all{border-color:var(--blue);background:var(--blue-dim);color:var(--blue-dark);}
+.prog-pill.active-pkh{border-color:var(--amber);background:var(--amber-dim);color:#B45309;}
+.prog-pill.active-bpnt{border-color:var(--cyan);background:var(--cyan-dim);color:#0369A1;}
+.prog-pill.active-both{border-color:var(--green);background:var(--green-dim);color:#065F46;}
+.prog-pill .pill-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.prog-pill .pill-count{margin-left:auto;font-size:11px;font-weight:700;color:var(--text3);}
 
-  /* ── BADGE chips ── */
-  .chip {
-    display: inline-flex; align-items:center; gap:5px;
-    padding: 4px 10px; border-radius: 20px;
-    font-size: 11.5px; font-weight: 600; white-space: nowrap;
-  }
-  .chip.pkh    { background:var(--pkh-bg); color:var(--pkh); }
-  .chip.bpnt   { background:var(--bpnt-bg); color:var(--bpnt); }
-  .chip.both   { background:var(--both-bg); color:var(--both); }
-  .chip::before { content:'●'; font-size:8px; }
+.mini-chart {margin-top:4px;}
+.mc-row {
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:8px;font-size:12px;
+}
+.mc-label {min-width:64px;color:var(--text2);font-weight:500;}
+.mc-track {
+  flex:1;height:6px;background:var(--bg);
+  border-radius:3px;overflow:hidden;
+}
+.mc-fill {
+  height:100%;border-radius:3px;
+  width:0;transition:width 1s cubic-bezier(.22,.61,.36,1);
+}
+.mc-val {min-width:28px;text-align:right;font-weight:700;color:var(--text3);font-size:11px;}
 
-  /* ── MAIN CONTENT ── */
-  .container { max-width:1200px; margin:0 auto; padding: 32px 24px 60px; }
+.btn-export {
+  width:100%;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 16px;
+  background:var(--text);color:#fff;
+  border:none;border-radius:12px;
+  font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;
+  cursor:pointer;transition:all .18s;
+  letter-spacing:0.2px;
+}
+.btn-export:hover{background:#1E293B;transform:translateY(-1px);box-shadow:0 4px 14px rgba(15,23,42,0.2);}
+.btn-export:active{transform:none;}
+.btn-reset {
+  width:100%;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  padding:9px;
+  background:transparent;color:var(--text3);
+  border:1.5px solid var(--border);border-radius:10px;
+  font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;
+  cursor:pointer;transition:all .15s;margin-top:6px;
+}
+.btn-reset:hover{border-color:var(--red);color:var(--red);}
 
-  /* ── DATA SOURCE BAR ── */
-  .source-bar {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 16px 20px;
-    margin-bottom: 24px;
-    display: flex; align-items: center; gap:12px; flex-wrap:wrap;
-  }
-  .source-bar .src-icon { font-size:20px; }
-  .source-bar .src-info { flex:1; }
-  .source-bar .src-title { font-size:13px; font-weight:700; color:var(--text); }
-  .source-bar .src-sub { font-size:11.5px; color:var(--muted); }
-  .source-bar .btn-load {
-    background: linear-gradient(135deg,var(--accent),var(--accent2));
-    color:#fff; border:none; padding:9px 20px;
-    border-radius:9px; font-size:13px; font-weight:600;
-    font-family:inherit; cursor:pointer;
-    transition: opacity .2s, transform .1s;
-    display: flex; align-items:center; gap:6px;
-  }
-  .source-bar .btn-load:hover { opacity:.9; }
-  .source-bar .btn-load:active { transform:scale(.98); }
-  .source-bar .btn-load:disabled { opacity:.5; cursor:default; }
-  .source-status {
-    font-size:12px; color:var(--muted); padding:4px 0;
-  }
-  .source-status.ready { color:#15803D; font-weight:600; }
+/* ─── MAIN CONTENT ─── */
+.main {}
 
-  /* ── UPLOAD FALLBACK ── */
-  .upload-section {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px 24px;
-    margin-bottom: 20px;
-  }
-  .upload-toggle {
-    font-size:12px; color:var(--muted); cursor:pointer;
-    text-align:center; padding:8px;
-    border-top:1px dashed var(--border); margin-top:8px;
-  }
-  .upload-toggle:hover { color:var(--accent); }
-  .upload-cols { display:flex; gap:12px; flex-wrap:wrap; }
-  .upload-box {
-    flex:1; min-width:200px;
-    border: 2px dashed var(--border);
-    border-radius:12px;
-    padding: 18px 16px; text-align:center;
-    cursor:pointer; transition: border-color .2s, background .2s;
-    position:relative; overflow:hidden;
-  }
-  .upload-box:hover { border-color:var(--accent); background:#F5F8FF; }
-  .upload-box input[type=file] {
-    position:absolute; inset:0; opacity:0; cursor:pointer;
-  }
-  .upload-box .up-icon { font-size:24px; margin-bottom:6px; }
-  .upload-box .up-label { font-size:13px; font-weight:600; }
-  .upload-box .up-sub { font-size:11px; color:var(--muted); margin-top:3px; }
-  .upload-box.pkh-box { border-color:#F3D08B; }
-  .upload-box.bpnt-box { border-color:#7EC8D3; }
-  .btn-merge {
-    margin-top:12px;
-    background: linear-gradient(135deg,var(--accent),var(--accent2));
-    color:#fff; border:none; padding:10px 24px;
-    border-radius:9px; font-size:13px; font-weight:600;
-    font-family:inherit; cursor:pointer;
-    transition: opacity .2s, transform .1s;
-  }
-  .btn-merge:hover { opacity:.9; }
-  .btn-merge:active { transform:scale(.98); }
+.result-bar {
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:14px;flex-wrap:wrap;
+}
+.result-count {
+  font-family:'Sora',sans-serif;
+  font-size:20px;font-weight:700;color:var(--text);
+}
+.result-sub {font-size:12px;color:var(--text3);}
+.result-spacer{flex:1;}
+.view-toggle {
+  display:flex;gap:2px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;padding:3px;
+}
+.vt-btn {
+  padding:5px 10px;border-radius:7px;
+  border:none;background:transparent;
+  cursor:pointer;font-size:13px;color:var(--text3);
+  transition:all .15s;
+}
+.vt-btn.active{background:var(--text);color:#fff;}
 
-  /* ── LEGEND ── */
-  .legend-row {
-    display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;
-    align-items:center;
-  }
-  .legend-label { font-size:12px; color:var(--muted); font-weight:500; margin-right:4px; }
+/* ─── TABLE ─── */
+.table-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 1px 3px rgba(15,23,42,0.06);
+}
+table{width:100%;border-collapse:collapse;}
+thead tr{background:var(--surface2);}
+th {
+  padding:11px 16px;
+  font-size:10.5px;font-weight:700;
+  letter-spacing:0.8px;text-transform:uppercase;
+  color:var(--text3);
+  border-bottom:1px solid var(--border);
+  white-space:nowrap;
+  cursor:pointer;user-select:none;
+}
+th:hover{color:var(--text2);}
+th .sort-ico{display:inline-block;margin-left:4px;opacity:0.4;font-size:9px;}
+th.sorted .sort-ico{opacity:1;color:var(--blue);}
+td {
+  padding:13px 16px;
+  border-bottom:1px solid var(--border);
+  vertical-align:middle;
+}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr{transition:background .1s;}
+tbody tr:hover{background:#F8FAFF;}
 
-  /* ── SEARCH BAR ── */
-  .search-bar {
-    display: flex; gap:10px; margin-bottom:24px; flex-wrap:wrap;
-    align-items:center;
-  }
-  .search-wrap {
-    flex:1; min-width:200px;
-    position:relative;
-  }
-  .search-wrap input {
-    width:100%; padding: 11px 16px 11px 42px;
-    border: 1.5px solid var(--border);
-    border-radius: 10px; font-size:14px;
-    font-family: inherit; background:var(--surface);
-    color: var(--text); outline:none;
-    transition: border-color .2s, box-shadow .2s;
-  }
-  .search-wrap input:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(26,86,219,.12);
-  }
-  .search-wrap .ico {
-    position:absolute; left:14px; top:50%; transform:translateY(-50%);
-    color:var(--muted); font-size:16px; pointer-events:none;
-  }
-  select.filter-sel {
-    padding: 11px 14px; border: 1.5px solid var(--border);
-    border-radius:10px; font-size:13px; font-family:inherit;
-    background:var(--surface); color:var(--text); cursor:pointer; outline:none;
-    transition: border-color .2s;
-  }
-  select.filter-sel:focus { border-color: var(--accent); }
-  select.filter-sel:disabled { opacity:.5; cursor:not-allowed; }
+.td-no {
+  width:42px;
+  font-size:11.5px;color:var(--text3);
+  text-align:center;font-family:'DM Mono',monospace;
+}
+.td-nik {
+  font-family:'DM Mono',monospace;
+  font-size:12px;color:var(--text3);
+  white-space:nowrap;
+}
+.nik-masked {display:inline;}
+.nik-full {display:none;}
+.nik-toggle {
+  background:none;border:none;cursor:pointer;
+  color:var(--blue);font-size:11px;padding:0 4px;
+  opacity:0.6;transition:opacity .15s;
+}
+.nik-toggle:hover{opacity:1;}
+.td-name {
+  font-weight:600;color:var(--text);
+  font-size:13.5px;
+}
+.td-addr {
+  font-size:12px;color:var(--text3);
+  max-width:180px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.td-rtrw {
+  font-family:'DM Mono',monospace;
+  font-size:12px;text-align:center;
+  color:var(--text2);
+}
+.td-dusun {
+  font-size:12.5px;
+}
+.dusun-badge {
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:11.5px;font-weight:600;
+  padding:3px 9px;border-radius:6px;
+  background:var(--surface2);color:var(--text2);
+  border:1px solid var(--border);
+}
 
-  /* ── RESULT COUNT ── */
-  .result-info {
-    font-size: 13px; color:var(--muted); margin-bottom:14px;
-  }
-  .result-info strong { color:var(--text); }
+.prog-badge {
+  display:inline-flex;align-items:center;gap:5px;
+  padding:4px 10px;border-radius:20px;
+  font-size:11px;font-weight:700;
+  white-space:nowrap;letter-spacing:0.2px;
+}
+.prog-badge::before{content:'';width:5px;height:5px;border-radius:50%;}
+.prog-pkh {background:var(--amber-dim);color:#92400E;}
+.prog-pkh::before{background:#F59E0B;}
+.prog-bpnt {background:var(--cyan-dim);color:#0C4A6E;}
+.prog-bpnt::before{background:#0EA5E9;}
+.prog-both {background:var(--green-dim);color:#064E3B;}
+.prog-both::before{background:#10B981;}
 
-  /* ── TABLE ── */
-  .table-wrap {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 1px 4px rgba(0,0,0,.05);
-  }
-  table { width:100%; border-collapse:collapse; }
-  thead tr { background: #F1F4F9; }
-  th {
-    padding: 12px 16px; text-align:left;
-    font-size: 11px; font-weight: 700; letter-spacing:.6px;
-    text-transform: uppercase; color: var(--muted);
-    border-bottom: 1px solid var(--border);
-    white-space: nowrap;
-  }
-  td {
-    padding: 13px 16px; font-size: 13.5px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: middle;
-  }
-  tbody tr:last-child td { border-bottom: none; }
-  tbody tr:hover { background: #FAFBFD; }
+/* ─── EMPTY ─── */
+.empty-state {
+  padding:60px 20px;text-align:center;
+  color:var(--text3);
+}
+.empty-icon {font-size:36px;margin-bottom:12px;opacity:0.5;}
+.empty-title {font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:var(--text2);margin-bottom:6px;}
+.empty-sub {font-size:13px;}
 
-  .nik-cell { font-family: monospace; font-size:12.5px; color:var(--muted); }
-  .name-cell { font-weight: 600; color:var(--text); }
-  .no-cell { color:var(--muted); font-size:12px; text-align:center; }
+/* ─── PAGINATION ─── */
+.pag-wrap {
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 20px;
+  border-top:1px solid var(--border);
+  background:var(--surface2);
+  flex-wrap:wrap;gap:10px;
+}
+.pag-info {font-size:12px;color:var(--text3);}
+.pag-btns {display:flex;gap:4px;}
+.pg-btn {
+  min-width:32px;height:32px;
+  border-radius:8px;
+  border:1.5px solid var(--border);
+  background:var(--surface);
+  font-size:12.5px;font-family:'DM Sans',sans-serif;
+  cursor:pointer;color:var(--text2);
+  transition:all .15s;
+  display:flex;align-items:center;justify-content:center;
+  padding:0 8px;
+}
+.pg-btn:hover:not(:disabled){border-color:var(--blue);color:var(--blue);}
+.pg-btn.active{background:var(--blue);color:#fff;border-color:var(--blue);font-weight:700;}
+.pg-btn:disabled{opacity:0.3;cursor:default;}
 
-  /* ── EMPTY STATE ── */
-  .empty {
-    text-align:center; padding: 60px 20px;
-    color: var(--muted);
-  }
-  .empty .ico { font-size:40px; margin-bottom:12px; }
-  .empty p { font-size:14px; }
+/* ─── TOAST ─── */
+.toast {
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:#0F172A;color:#fff;
+  padding:11px 20px;border-radius:12px;
+  font-size:13px;font-weight:500;
+  box-shadow:0 8px 32px rgba(0,0,0,0.25);
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+  z-index:999;pointer-events:none;
+  white-space:nowrap;
+}
+.toast.show{transform:translateX(-50%) translateY(0);}
 
-  /* ── CHARTS ── */
-  .charts-grid {
-    display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    gap:16px; margin-bottom:28px;
-  }
-  .chart-card {
-    background:var(--surface);
-    border: 1px solid var(--border);
-    border-radius:14px; padding:22px;
-  }
-  .chart-card h4 { font-size:13px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; margin-bottom:16px; }
-
-  .donut-wrap { display:flex; align-items:center; gap:20px; }
-  .donut {
-    width:90px; height:90px; border-radius:50%;
-    flex-shrink:0;
-  }
-  .donut-legend { flex:1; }
-  .donut-legend li {
-    list-style:none; display:flex; align-items:center; gap:8px;
-    font-size:12.5px; margin-bottom:7px;
-  }
-  .donut-legend li .dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
-  .donut-legend li span { margin-left:auto; font-weight:700; }
-
-  .bar-list { list-style:none; }
-  .bar-list li {
-    display:flex; align-items:center; gap:10px;
-    font-size:12.5px; margin-bottom:9px;
-  }
-  .bar-list li .bar-label { min-width:80px; color:var(--text); }
-  .bar-list li .bar-track {
-    flex:1; height:8px; background:#F1F4F9; border-radius:4px; overflow:hidden;
-  }
-  .bar-list li .bar-fill { height:100%; border-radius:4px; width:0; transition:width .8s cubic-bezier(.22,.61,.36,1); }
-  .bar-list li .bar-fill.animate { width:var(--target-width); }
-  .bar-list li .bar-val { min-width:32px; text-align:right; font-weight:600; color:var(--muted); }
-
-  /* ── PAGINATION ── */
-  .pagination {
-    display:flex; justify-content:center; align-items:center;
-    gap:6px; margin-top:20px; flex-wrap:wrap;
-  }
-  .pg-btn {
-    width:34px; height:34px; border-radius:8px;
-    border: 1.5px solid var(--border); background:var(--surface);
-    font-size:13px; font-family:inherit; cursor:pointer; color:var(--text);
-    transition: all .15s;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .pg-btn:hover { border-color:var(--accent); color:var(--accent); }
-  .pg-btn.active { background:var(--accent); color:#fff; border-color:var(--accent); }
-  .pg-btn:disabled { opacity:.35; cursor:default; }
-
-  /* ── EXPORT BTN ── */
-  .btn-export {
-    background:var(--surface);
-    border: 1.5px solid var(--border);
-    color:var(--text);
-    padding:9px 16px; border-radius:9px;
-    font-size:13px; font-weight:600; font-family:inherit;
-    cursor:pointer; display:flex; align-items:center; gap:6px;
-    transition: all .15s;
-  }
-  .btn-export:hover { border-color:var(--accent); color:var(--accent); }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--text);
-    padding: 28px 24px;
-    text-align:center;
-    font-size: 12.5px; color: rgba(255,255,255,.45);
-  }
-  footer strong { color:rgba(255,255,255,.7); }
-
-  @media(max-width:640px){
-    .hero { padding:32px 16px 28px; }
-    .container { padding:20px 16px 40px; }
-    th,td { padding:10px 12px; }
-    .search-bar { flex-direction:column; }
-    .source-bar { flex-direction:column; align-items:flex-start; }
-  }
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  :root{--sidebar-w:220px;}
+  .layout{grid-template-columns:var(--sidebar-w) 1fr;gap:16px;padding:16px;}
+  .hero{padding:36px 16px 0;}
+  .hero-visual{display:none;}
+  .hero-grid{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .layout{grid-template-columns:1fr;padding:12px 12px 40px;}
+  .sidebar{position:static;}
+  .hero{padding:28px 16px 0;}
+  td,th{padding:10px 12px;}
+  .topnav{padding:0 16px;}
+  .td-addr{display:none;}
+}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="header-inner">
-    <div class="logo-area">
-      <div class="logo-shield">🏛️</div>
-      <div class="logo-text">
-        <h1>Desa Kasomalang Kulon</h1>
-        <p>Kec. Kasomalang · Kab. Subang</p>
-      </div>
+<!-- TOP NAV -->
+<nav class="topnav">
+  <div class="nav-brand">
+    <div class="nav-logo">🏛️</div>
+    <div>
+      <div class="nav-title">Desa Kasomalang Kulon</div>
+      <div class="nav-sub">Kec. Kasomalang · Kab. Subang</div>
     </div>
-    <div class="header-badge">Data Bansos 2026</div>
   </div>
-</header>
+  <div class="nav-spacer"></div>
+  <div class="nav-pill">● Data Diperbarui</div>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">📋 Transparansi Pemerintah Desa</div>
-  <h2>Data Penerima Bantuan Sosial</h2>
-  <p>PKH & BPNT Tahap 2 Tahun 2026 — Informasi resmi yang dapat diakses oleh seluruh warga</p>
-  <div class="stats-row" id="statsRow">
-    <div class="stat-card"><div class="num" id="statTotal">—</div><div class="lbl">Total Penerima</div></div>
-    <div class="stat-card"><div class="num" id="statPKH">—</div><div class="lbl">PKH Saja</div></div>
-    <div class="stat-card"><div class="num" id="statBPNT">—</div><div class="lbl">BPNT Saja</div></div>
-    <div class="stat-card"><div class="num" id="statBoth">—</div><div class="lbl">PKH + BPNT</div></div>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow"><span></span>Transparansi Pemerintah Desa</div>
+      <h1>Data Penerima<br><em>Bantuan Sosial 2026</em></h1>
+      <p class="hero-desc">PKH &amp; BPNT Tahap 2 · April – Juni 2026<br>Informasi resmi yang dapat diakses seluruh warga Desa Kasomalang Kulon</p>
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-num">244</div>
+          <div class="hstat-lbl">Total Penerima</div>
+          <div class="hstat-bar blue"></div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num cyan">223</div>
+          <div class="hstat-lbl">BPNT Saja</div>
+          <div class="hstat-bar cyan"></div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num green">21</div>
+          <div class="hstat-lbl">PKH + BPNT</div>
+          <div class="hstat-bar green"></div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num" style="color:#F59E0B">0</div>
+          <div class="hstat-lbl">PKH Saja</div>
+          <div class="hstat-bar amber"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual" id="heroVisual"></div>
   </div>
 </section>
 
-<div class="container">
+<!-- MAIN LAYOUT -->
+<div class="layout">
 
-  <!-- DATA SOURCE BAR -->
-  <div class="source-bar">
-    <div class="src-icon">📡</div>
-    <div class="src-info">
-      <div class="src-title">Load dari GitHub</div>
-      <div class="src-sub">PKH & BPNT April–Juni 2026 · xxcode2/pkhbpnt</div>
-    </div>
-    <button class="btn-load" id="btnLoad" onclick="loadFromGitHub()">
-      ⬇️ Load Data
-    </button>
-    <div class="source-status" id="sourceStatus"></div>
-  </div>
-
-  <!-- UPLOAD FALLBACK -->
-  <div class="upload-section" id="uploadSection" style="display:none">
-    <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">
-      Atau upload manual (jika load dari GitHub gagal):
-    </div>
-    <div class="upload-cols">
-      <div class="upload-box pkh-box">
-        <input type="file" id="filePKH" accept=".xlsx,.xls">
-        <div class="up-icon">📄</div>
-        <div class="up-label">File PKH</div>
-        <div class="up-sub" id="namePKH">Pilih file .xlsx</div>
-      </div>
-      <div class="upload-box bpnt-box">
-        <input type="file" id="fileBPNT" accept=".xlsx,.xls">
-        <div class="up-icon">📄</div>
-        <div class="up-label">File BPNT</div>
-        <div class="up-sub" id="nameBPNT">Pilih file .xlsx</div>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <!-- Search -->
+    <div class="scard">
+      <div class="scard-head">🔍 Cari</div>
+      <div class="scard-body">
+        <div class="search-wrap">
+          <span class="search-ico">🔎</span>
+          <input type="text" class="search-input" id="searchInput" placeholder="Nama atau NIK…" oninput="onSearch()">
+        </div>
       </div>
     </div>
-    <button class="btn-merge" onclick="mergeData()">⚡ Gabungkan & Tampilkan</button>
-    <div class="upload-toggle" onclick="document.getElementById('uploadSection').style.display='none'">
-      Tutup opsi upload ↑
-    </div>
-  </div>
-  <div class="upload-toggle" id="showUploadToggle" style="display:none;margin-bottom:16px;color:var(--accent);cursor:pointer;font-size:12px;text-align:center;" onclick="document.getElementById('uploadSection').style.display='block';this.style.display='none'">
-    ▲ Atau upload file Excel secara manual
-  </div>
 
-  <!-- CHARTS -->
-  <div class="charts-grid" id="chartsGrid" style="display:none">
-    <div class="chart-card">
-      <h4>📊 Distribusi Program</h4>
-      <div class="donut-wrap">
-        <canvas id="donutCanvas" width="90" height="90" style="flex-shrink:0"></canvas>
-        <ul class="donut-legend" id="donutLegend"></ul>
+    <!-- Filter Program -->
+    <div class="scard">
+      <div class="scard-head">📌 Program</div>
+      <div class="scard-body">
+        <div class="prog-pills">
+          <div class="prog-pill active-all" data-prog="" onclick="setProgFilter(this,'')">
+            <span class="pill-dot" style="background:var(--blue)"></span>
+            Semua Program
+            <span class="pill-count">244</span>
+          </div>
+          <div class="prog-pill" data-prog="BPNT" onclick="setProgFilter(this,'BPNT')">
+            <span class="pill-dot" style="background:var(--cyan)"></span>
+            BPNT Saja
+            <span class="pill-count">223</span>
+          </div>
+          <div class="prog-pill" data-prog="PKH + BPNT" onclick="setProgFilter(this,'PKH + BPNT')">
+            <span class="pill-dot" style="background:var(--green)"></span>
+            PKH + BPNT
+            <span class="pill-count">21</span>
+          </div>
+          <div class="prog-pill" data-prog="PKH" onclick="setProgFilter(this,'PKH')">
+            <span class="pill-dot" style="background:var(--amber)"></span>
+            PKH Saja
+            <span class="pill-count">0</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="chart-card">
-      <h4>📍 Per Desa</h4>
-      <ul class="bar-list" id="dusunBars"></ul>
+
+    <!-- Filter Lokasi -->
+    <div class="scard">
+      <div class="scard-head">📍 Lokasi</div>
+      <div class="scard-body">
+        <div class="filter-group">
+          <label class="filter-label">Dusun</label>
+          <select class="filter-sel" id="filterDusun" onchange="onDusunChange();renderTable()">
+            <option value="">Semua Dusun</option>
+            <option value="Dusun 1">Dusun 1 (RW 1–2)</option>
+            <option value="Dusun 2">Dusun 2 (RW 3,6)</option>
+            <option value="Dusun 3">Dusun 3 (RW 4,5,7)</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">RW</label>
+          <select class="filter-sel" id="filterRW" onchange="onRWChange();renderTable()" disabled>
+            <option value="">Semua RW</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">RT</label>
+          <select class="filter-sel" id="filterRT" onchange="renderTable()" disabled>
+            <option value="">Semua RT</option>
+          </select>
+        </div>
+      </div>
     </div>
-    <div class="chart-card">
-      <h4>📈 Per RW</h4>
-      <ul class="bar-list" id="rwBars"></ul>
+
+    <!-- Mini chart -->
+    <div class="scard">
+      <div class="scard-head">📊 Per Dusun</div>
+      <div class="scard-body">
+        <div class="mini-chart" id="miniChart"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- LEGEND + SEARCH + EXPORT -->
-  <div class="legend-row">
-    <span class="legend-label">Keterangan:</span>
-    <span class="chip pkh">PKH</span>
-    <span class="chip bpnt">BPNT</span>
-    <span class="chip both">PKH + BPNT</span>
-  </div>
-
-  <div class="search-bar">
-    <div class="search-wrap">
-      <span class="ico">🔍</span>
-      <input type="text" id="searchInput" placeholder="Cari nama atau NIK…" oninput="renderTable()">
+    <!-- Actions -->
+    <div>
+      <button class="btn-export" onclick="exportFiltered()">
+        <span>⬇</span> Export Excel
+      </button>
+      <button class="btn-reset" onclick="resetFilters()">✕ Reset Filter</button>
     </div>
-    <select class="filter-sel" id="filterProgram" onchange="renderTable()">
-      <option value="">Semua Program</option>
-      <option value="PKH">PKH Saja</option>
-      <option value="BPNT">BPNT Saja</option>
-      <option value="PKH + BPNT">PKH + BPNT</option>
-    </select>
-    <select class="filter-sel" id="filterDusun" onchange="onDusunChange();renderTable()">
-      <option value="">Semua Desa</option>
-    </select>
-    <select class="filter-sel" id="filterRW" onchange="onRWChange();renderTable()" disabled>
-      <option value="">Semua RW</option>
-    </select>
-    <select class="filter-sel" id="filterRT" onchange="renderTable()" disabled>
-      <option value="">Semua RT</option>
-    </select>
-    <button class="btn-export" id="btnExport" onclick="exportFiltered()" style="display:none">
-      📥 Export Excel
-    </button>
-  </div>
+  </aside>
 
-  <div class="result-info" id="resultInfo"></div>
+  <!-- MAIN -->
+  <main class="main">
+    <div class="result-bar">
+      <div>
+        <div class="result-count" id="resultCount">244</div>
+        <div class="result-sub" id="resultSub">penerima · klik NIK untuk lihat lengkap</div>
+      </div>
+    </div>
 
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th style="width:46px">No</th>
-          <th>NIK</th>
-          <th>Nama</th>
-          <th>Alamat</th>
-          <th>RT/RW</th>
-          <th>Desa</th>
-          <th>Program</th>
-        </tr>
-      </thead>
-      <tbody id="tableBody">
-        <tr><td colspan="7"><div class="empty"><div class="ico">📭</div><p>Klik "Load Data" untuk mengambil data dari GitHub, atau scroll ke bawah untuk upload manual.</p></div></td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="pagination" id="pagination"></div>
-
+    <div class="table-card">
+      <table>
+        <thead>
+          <tr>
+            <th class="td-no">#</th>
+            <th onclick="sortBy('nama')" id="th-nama">Nama <span class="sort-ico">↕</span></th>
+            <th>NIK</th>
+            <th>Alamat</th>
+            <th style="text-align:center">RT/RW</th>
+            <th>Dusun</th>
+            <th>Program</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <div class="pag-wrap">
+        <div class="pag-info" id="pagInfo"></div>
+        <div class="pag-btns" id="pagination"></div>
+      </div>
+    </div>
+  </main>
 </div>
 
-<footer>
-  <strong>Desa Kasomalang Kulon</strong> · Kecamatan Kasomalang · Kabupaten Subang<br>
-  Data Penerima Bansos PKH &amp; BPNT Tahap 2 Tahun 2026 · Dikelola oleh Pemerintah Desa
-</footer>
+<div class="toast" id="toast"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
-// ── RW → DESA mapping ──
-// Keys are plain integer strings (no zero-padding)
-const RW_DUSUN_MAP = {
-  '1': 'Dusun 1',
-  '2': 'Dusun 1',
-  '3': 'Dusun 2',
-  '6': 'Dusun 2',
-  '4': 'Dusun 3',
-  '5': 'Dusun 3',
-  '7': 'Dusun 3',
-};
-const DUSUN_RW_MAP = {
-  'Dusun 1': ['1','2'],
-  'Dusun 2': ['3','6'],
-  'Dusun 3': ['4','5','7'],
-};
-const RW_RT_MAP = {
-  '1': ['1','2','3','4','5','6'],
-  '2': ['1','2','3','4','5','6'],
-  '3': ['1','2','3','4'],
-  '6': ['1','2','3'],
-  '4': ['1','2','3','4','5'],
-  '5': ['1','2'],
-  '7': ['1','2','3'],
-};
+const RW_DUSUN_MAP={'1':'Dusun 1','2':'Dusun 1','3':'Dusun 2','6':'Dusun 2','4':'Dusun 3','5':'Dusun 3','7':'Dusun 3'};
+const DUSUN_RW_MAP={'Dusun 1':['1','2'],'Dusun 2':['3','6'],'Dusun 3':['4','5','7']};
+const RW_RT_MAP={'1':['1','2','3','4','5','6'],'2':['1','2','3','4','5','6'],'3':['1','2','3','4'],'6':['1','2','3'],'4':['1','2','3','4','5'],'5':['1','2'],'7':['1','2','3']};
 
-let allData = [];
-let currentPage = 1;
-const PAGE_SIZE = 20;
+const allData = [{"no": 1, "nik": "3213264907970002", "nama": "YULI DAHLIA", "alamat": "KP KASOMALANGKULON ", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 2, "nik": "3213264707760001", "nama": "AI NURAENI", "alamat": "KP KARIHKIL ", "rt": "", "rw": "", "dusun": "", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 3, "nik": "3213264211500005", "nama": "WANGSIH", "alamat": "KASOMALANG KULON ", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 4, "nik": "3213260701550003", "nama": "ACUM", "alamat": "KASOMALANG KULON ", "rt": "3", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 5, "nik": "3213264811830002", "nama": "ADE MULYANI", "alamat": "", "rt": "5", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 6, "nik": "3213264211620001", "nama": "AMAS", "alamat": "KP. KARIHKIL ", "rt": "6", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 7, "nik": "3213265410960002", "nama": "YENI MULYANI", "alamat": "KP RANCASARI ", "rt": "2", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 8, "nik": "3216095510800013", "nama": "YAYAH", "alamat": "KP SUKAJAYA ", "rt": "4", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 9, "nik": "3213266803580001", "nama": "ETI ROHAETI", "alamat": "", "rt": "2", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 10, "nik": "3213264105890001", "nama": "LISNA WATI", "alamat": "KP RANCASARI ", "rt": "3", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 11, "nik": "3213024408880003", "nama": "SANTI", "alamat": "KASOMALANG KULON ", "rt": "6", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 12, "nik": "3213265301820001", "nama": "TIRAH IRAWATI", "alamat": "KASOMALANG KULON ", "rt": "1", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 13, "nik": "3213265411810006", "nama": "JUJUN HERMAWATI", "alamat": "DS KASOMALANG KULON ", "rt": "1", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 14, "nik": "3213265809880005", "nama": "AMI WAHYUNI", "alamat": "KASOMALANG KULON ", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 15, "nik": "3213267105030004", "nama": "SOPI MEYTANIA", "alamat": "KP. KASOMALANG KULON ", "rt": "3", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 16, "nik": "3213265406770006", "nama": "ATIKAH", "alamat": "KP KARIHKIL ", "rt": "1", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 17, "nik": "3213042202940002", "nama": "YOGI HERYANTO", "alamat": "KP KARIHKIL ", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 18, "nik": "3213265310860002", "nama": "ANENGSIH", "alamat": "KASOMALANG KULON ", "rt": "5", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 19, "nik": "3213264408610003", "nama": "KARTINI", "alamat": "", "rt": "5", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 20, "nik": "3213266403870001", "nama": "ENI NURAENI", "alamat": "KP. KARIHKIL ", "rt": "5", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 21, "nik": "3213265501900010", "nama": "LILIS CASNAWATI", "alamat": "KP. KASOMALANG KULON NO. SUBAN ", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "PKH + BPNT"}, {"no": 22, "nik": "3213266306720004", "nama": "NANI SUMARNI", "alamat": "KASOMALANG KULON ", "rt": "1", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 23, "nik": "3203045103880007", "nama": "DETI KURNIA", "alamat": "KP. SUKAJAYA ", "rt": "4", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 24, "nik": "3213264101650132", "nama": "YANAH", "alamat": "", "rt": "5", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 25, "nik": "3213260305600005", "nama": "MAKMUN", "alamat": "KASOMALANG KULON ", "rt": "1", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 26, "nik": "3213264604980012", "nama": "LILIS LESTARI", "alamat": "KP RANCASARI ", "rt": "1", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 27, "nik": "3213265202760001", "nama": "IMI", "alamat": "KP KASOMALANG KULON ", "rt": "1", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 28, "nik": "3205205003970001", "nama": "SANTI", "alamat": "KP. SUKAJAYA ", "rt": "1", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 29, "nik": "3213260106510006", "nama": "U SUPIANDA", "alamat": "KASOMALANG KULON ", "rt": "2", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 30, "nik": "3213265208960001", "nama": "NIA SITI KURNIASARI", "alamat": "KP. KASOMALANG KULON ", "rt": "6", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 31, "nik": "3213266608690001", "nama": "ANENG", "alamat": "KP. KASOMALANG KULON ", "rt": "1", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 32, "nik": "3213260101470008", "nama": "KARDI", "alamat": "KP KARIHKIL ", "rt": "3", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 33, "nik": "3213124311750001", "nama": "RITA NANI MULYANI", "alamat": "KP KASOMALANG KULON ", "rt": "3", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 34, "nik": "3213265111850010", "nama": "NUR AENI", "alamat": "KP. KARIHKIL ", "rt": "3", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 35, "nik": "3213266102900001", "nama": "AI HERA ROSITA", "alamat": "KASOMALANG KULON ", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 36, "nik": "3213265005810009", "nama": "DEDEH SUNINGSIH", "alamat": "", "rt": "2", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 37, "nik": "3213265604520001", "nama": "ITI", "alamat": "KASOMALANG KULON ", "rt": "1", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 38, "nik": "3213266710950001", "nama": "EVI LESTARI", "alamat": "KP KASOMALANG KULON ", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 39, "nik": "3213266304900009", "nama": "WINA HANDRIYANI", "alamat": "KP. KARIHKIL ", "rt": "5", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 40, "nik": "3213076206720001", "nama": "HANI HAERANI", "alamat": "KP. KASOMALANG KULON ", "rt": "2", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 41, "nik": "3213264801730001", "nama": "NANI SUYATMI", "alamat": "KP KASOMALANG KULON ", "rt": "3", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 42, "nik": "3213266110710002", "nama": "POPON WARPIATI", "alamat": "KP. BABAKAN SUKAJAYA ", "rt": "1", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 43, "nik": "3213267107750002", "nama": "ETI SUSILAWATI", "alamat": "DUSUN KASOMALANG KULON ", "rt": "6", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 44, "nik": "3213261501800006", "nama": "ALIT SANDI APANDI", "alamat": "KP. KASOMALANG KULON ", "rt": "1", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 45, "nik": "3213264701700004", "nama": "IMAS", "alamat": "KASOMALANG KULON KP KARIHKIL ", "rt": "5", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 46, "nik": "3213265306620003", "nama": "KAYAT", "alamat": "KASOMALANG KULON KP KARIHKIL ", "rt": "3", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 47, "nik": "3213260101600031", "nama": "KARMAN", "alamat": "KP SUKAJAYA ", "rt": "2", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 48, "nik": "3213265704820005", "nama": "LILIS KOMARIAH", "alamat": "", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 49, "nik": "3213264503750002", "nama": "WIWI WIARSIH", "alamat": "KARIKHIL ", "rt": "6", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 50, "nik": "3213264509950002", "nama": "RIKA SENTYA MONIKA", "alamat": "", "rt": "4", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 51, "nik": "3213264808870001", "nama": "PIPIH KOMALASARI", "alamat": "KP SUKAJAYA ", "rt": "1", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 52, "nik": "3213260404470001", "nama": "ALSAN", "alamat": "KP RANCASARI ", "rt": "2", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 53, "nik": "3213266212900002", "nama": "ANISA RAHIM", "alamat": "KP. KARIHKIL ", "rt": "5", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 54, "nik": "3213264410840004", "nama": "HENI ROSMIANI", "alamat": "KP. KASOMALANG KULON ", "rt": "2", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 55, "nik": "3213036306750007", "nama": "E RISNAWATI", "alamat": "KP KARIHKIL ", "rt": "4", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 56, "nik": "3213264101650002", "nama": "WARTINI", "alamat": "KASOMALANG KULON KP KARIHKIL ", "rt": "3", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 57, "nik": "3213260611990001", "nama": "SANDY RUDIANA", "alamat": "KP. KARIHKIL ", "rt": "1", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 58, "nik": "3213265103790006", "nama": "NANI NURAENI", "alamat": "KASOMALANG KULON ", "rt": "2", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 59, "nik": "3213266105990003", "nama": "GITA PURNAMASARI", "alamat": "KP KASOMALANG KULON ", "rt": "1", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 60, "nik": "3213264403080001", "nama": "WIDIA RAHMAWATI", "alamat": "KP KARIHKIL ", "rt": "", "rw": "", "dusun": "", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 61, "nik": "3213235708840005", "nama": "IKA AGUSTINI", "alamat": "KASOMALANG KULON ", "rt": "3", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 62, "nik": "3213260101420042", "nama": "KAHRI", "alamat": "KASOMALANG KULON ", "rt": "1", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 63, "nik": "3213264107340041", "nama": "ENIH", "alamat": "KP RANCASARI ", "rt": "2", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 64, "nik": "3213262201940005", "nama": "TORI NURWARI", "alamat": "", "rt": "1", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 65, "nik": "3213266309810002", "nama": "SRI RAHAYU SASTIAJI", "alamat": "KASOMALANG KULON ", "rt": "1", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 66, "nik": "3213264403930001", "nama": "IDA ROSIDA", "alamat": "KASOMALANG KULON ", "rt": "1", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 67, "nik": "3213264502730001", "nama": "HALIMAH", "alamat": "KP KASOMALANG KULON ", "rt": "2", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 68, "nik": "3213266412670001", "nama": "ROSTINI", "alamat": "KMP. KASOMALANG KULON ", "rt": "5", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 69, "nik": "3213265508740001", "nama": "ILAH", "alamat": "", "rt": "2", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 70, "nik": "3213264805720003", "nama": "YATI", "alamat": "KP. KARIHKIL ", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 71, "nik": "3213264206490002", "nama": "IJAH", "alamat": "KP KASOMALANG KULON ", "rt": "2", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 72, "nik": "3213265112510001", "nama": "NUNUNG NURHAYATI", "alamat": "KP. KARIHKIL ", "rt": "6", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 73, "nik": "3213264812750001", "nama": "SITI HASANAH", "alamat": "KP. KARIHKIL ", "rt": "5", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 74, "nik": "3213266510960001", "nama": "DEWI RATNASARI", "alamat": "KASOMALANG KULON ", "rt": "2", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 75, "nik": "3273045109020001", "nama": "SHEILLA ASMARA SEPTIANI", "alamat": "KASOMALANG KULON ", "rt": "4", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 76, "nik": "3213264703610003", "nama": "AAS ASMANAH", "alamat": "KASOMALANG KULON ", "rt": "3", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 77, "nik": "3213264902590001", "nama": "ASIH", "alamat": "KP. KARIHKIL ", "rt": "6", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 78, "nik": "3213264612010001", "nama": "RISKA NURSAFITRI", "alamat": "KP KARIHKIL ", "rt": "", "rw": "", "dusun": "", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 79, "nik": "3213265111760001", "nama": "ADE ROSWATI", "alamat": "KP KASOMALANG KULON ", "rt": "4", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 80, "nik": "3213264107620001", "nama": "MUKTI", "alamat": "KP. KARIHKIL ", "rt": "5", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 81, "nik": "3213266010460001", "nama": "ASIH", "alamat": "KASOMALANG KULON ", "rt": "1", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 82, "nik": "3213264102840004", "nama": "YANI JUWITA", "alamat": "KASOMALANG KULON ", "rt": "1", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 83, "nik": "3213264612620001", "nama": "IRAH", "alamat": "", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 84, "nik": "3213266404810001", "nama": "AI KARTINI", "alamat": "KP. KARIHKIL ", "rt": "1", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 85, "nik": "3213266510650001", "nama": "EROS ROSITA", "alamat": "KP. KARIHKIL ", "rt": "5", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 86, "nik": "3213261805500005", "nama": "ENDANG HUSEN", "alamat": "", "rt": "1", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 87, "nik": "3213265809900003", "nama": "RANI SEFTYANI", "alamat": "KP. KASOMALANG KULON ", "rt": "2", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 88, "nik": "3213264607600012", "nama": "UNEN", "alamat": "KP KASOMALANGKULON ", "rt": "1", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 89, "nik": "3213265902830005", "nama": "TITA PATIMAH", "alamat": "KARIKHIL ", "rt": "1", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 90, "nik": "3213264907620001", "nama": "NANI ROSTINI", "alamat": "KASOMALANG KULON ", "rt": "1", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 91, "nik": "3213266310760001", "nama": "CUCUN CUNAYAH", "alamat": "", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 92, "nik": "3213266906880001", "nama": "YUNI YULIANTINI", "alamat": "KP SUKAJAYA ", "rt": "3", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 93, "nik": "3213260101520004", "nama": "H MUKSIN", "alamat": "KASOMALANG KULON ", "rt": "2", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 94, "nik": "3213265312750001", "nama": "WIWIK SUHARTINI", "alamat": "KASOMALANG KULON ", "rt": "2", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 95, "nik": "3213266309820001", "nama": "ENUNG HIKMAH", "alamat": "KP. KASOMALANG KULON ", "rt": "6", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 96, "nik": "3213260602410001", "nama": "DWI HANDAYANTO SUBAGIO", "alamat": "KP. KASOMALANG KULON ", "rt": "2", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 97, "nik": "3213264903880001", "nama": "LENI MARYANI", "alamat": "KP. SUKAJAYA ", "rt": "2", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 98, "nik": "3213264803820002", "nama": "INA MARLINA", "alamat": "KP KASOMALANG KULON ", "rt": "4", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 99, "nik": "3213260606950010", "nama": "AGUS BUDIMAN", "alamat": "KP. KARIHKIL ", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 100, "nik": "3213265111900002", "nama": "ADE SUSILAWATI", "alamat": "KP KASOMALANG KULON ", "rt": "3", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 101, "nik": "3213266911830001", "nama": "ROHMAYATIN", "alamat": "RANCASARI ", "rt": "1", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 102, "nik": "3213266207950002", "nama": "SUSILAWATI", "alamat": "KP KASOMALANG KULON ", "rt": "2", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 103, "nik": "3213294107910081", "nama": "OMAH", "alamat": "KP KASOMALANG KULON ", "rt": "1", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 104, "nik": "3213266606870001", "nama": "INDAWATI", "alamat": "KASOMALANG KULON ", "rt": "4", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 105, "nik": "3213266907990001", "nama": "PITRI NURPITRIANI", "alamat": "KP. RANCASARI ", "rt": "1", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 106, "nik": "3213266311880001", "nama": "ANI NURYANI", "alamat": "KP. RANCASARI ", "rt": "1", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 107, "nik": "3213260107600018", "nama": "SAHRO", "alamat": "KP KARIHKIL ", "rt": "6", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 108, "nik": "3213264202820001", "nama": "ANI", "alamat": "KP. RANCASARI ", "rt": "1", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 109, "nik": "3213265208710008", "nama": "ELIS", "alamat": "KP SUKAJAYA ", "rt": "2", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 110, "nik": "3213266105740006", "nama": "ANENG ATIKAH NENGSIH", "alamat": "KASOMALANG KULON ", "rt": "3", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 111, "nik": "3213264807810004", "nama": "IMAS RUKMINI", "alamat": "", "rt": "2", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 112, "nik": "3213262308820001", "nama": "AMIN", "alamat": "KP KASOMALANG KULON ", "rt": "1", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 113, "nik": "3213266802680005", "nama": "LURUH RUHYANI", "alamat": "KP KASOMALANG KULON ", "rt": "4", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 114, "nik": "3213264802890001", "nama": "WINDA WINARTI", "alamat": "KASOMALANG KULON ", "rt": "2", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 115, "nik": "3213264710660001", "nama": "IKAH", "alamat": "KP. KARIHKIL ", "rt": "5", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 116, "nik": "3213265403680002", "nama": "LINA HERLINA", "alamat": "KP SUKAJAYA ", "rt": "2", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 117, "nik": "3213265006740005", "nama": "IIS HENDRIYANTI", "alamat": "KP. KASOMALANG KULON ", "rt": "1", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 118, "nik": "3213066502870002", "nama": "YATI HERAWATI", "alamat": "KP. KASOMALANG KULON ", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 119, "nik": "3213265712500002", "nama": "ENING YUNINGSIH", "alamat": "KP KASOMALANGKULON ", "rt": "5", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 120, "nik": "3213264801840007", "nama": "MIMI SETIASIH", "alamat": "KP. KARIHKIL ", "rt": "6", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 121, "nik": "3213264109820001", "nama": "EDAH JUBAEDAH", "alamat": "KP KASOMALANG KULON ", "rt": "4", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 122, "nik": "3213262007950001", "nama": "ANDI SANJAYA", "alamat": "KP HAURKONENG ", "rt": "31", "rw": "10", "dusun": "", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 123, "nik": "3213264101530058", "nama": "JUANINGSIH", "alamat": "KP SUKAJAYA ", "rt": "3", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 124, "nik": "3213195005030001", "nama": "RISMAWATI", "alamat": "KP KASOMALANG KULON ", "rt": "", "rw": "", "dusun": "", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 125, "nik": "3213264607670001", "nama": "YOYOH", "alamat": "KASOMALANG KULON ", "rt": "4", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 126, "nik": "3213266302940003", "nama": "HENI ROHAENI", "alamat": "KP SUKAJAYA ", "rt": "1", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 127, "nik": "3213264101790007", "nama": "ELIS NURJANAH", "alamat": "KASOMALANG KULON ", "rt": "4", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 128, "nik": "3213264503730010", "nama": "YUYUN", "alamat": "KP. KARIKIL ", "rt": "3", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 129, "nik": "3213265404670005", "nama": "EUIS ALIS", "alamat": "", "rt": "4", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 130, "nik": "3213266005680001", "nama": "UUN", "alamat": "KP. KARIHKIL ", "rt": "6", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 131, "nik": "3213264206480006", "nama": "UUM", "alamat": "KASOMALANG KULON ", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 132, "nik": "3213265112930001", "nama": "NINA SAPUTRI", "alamat": "KP. KARIHKIL ", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 133, "nik": "3213261008540002", "nama": "AHMAD", "alamat": "KP KASOMALANG KULON ", "rt": "5", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 134, "nik": "3213266908940001", "nama": "SRI MULYANI", "alamat": "KP KASOMALANG ", "rt": "1", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 135, "nik": "3213264504860008", "nama": "NENENG NURGINAYAH", "alamat": "KP KARIHKIL ", "rt": "2", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 136, "nik": "3201295606990003", "nama": "ENDANG MAULINDA", "alamat": "KP RANCASARI ", "rt": "", "rw": "", "dusun": "", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 137, "nik": "3213266003860001", "nama": "ENDE SRI HARTATI", "alamat": "KASOMALANG KULON ", "rt": "1", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 138, "nik": "3215136206590002", "nama": "ELI ZUHARLIA", "alamat": "KASOMALANG KULON ", "rt": "2", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 139, "nik": "3213265706520001", "nama": "MAMAH", "alamat": "KP KARIHKIL ", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 140, "nik": "3213261112780002", "nama": "YUSEP HABIBIE", "alamat": "KP. KASOMALANG KULON ", "rt": "1", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 141, "nik": "3213264406630011", "nama": "EDAH", "alamat": "KP KASOMALANG KULON ", "rt": "1", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 142, "nik": "3213264604720002", "nama": "YAYAH", "alamat": "KASOMALANG KULON KP KARIHKIL ", "rt": "1", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 143, "nik": "3213264404640002", "nama": "NENI", "alamat": "KP SUKAJAYA ", "rt": "2", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 144, "nik": "3213265205900001", "nama": "RINA RUMAENI", "alamat": "KP. SUKAJAYA ", "rt": "5", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 145, "nik": "3213266101780001", "nama": "HERYANI", "alamat": "KP. KARIHKIL ", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 146, "nik": "3213267003840001", "nama": "DIAN ANIDARYANI", "alamat": "KP KASOMALANG KULON ", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 147, "nik": "3213264511700009", "nama": "OON ROHAENI", "alamat": "", "rt": "2", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 148, "nik": "3213264303790009", "nama": "DINNY YUSTRIANI", "alamat": "KASOMALANG KULON ", "rt": "3", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 149, "nik": "3213265002630001", "nama": "YUYU", "alamat": "KASOMALANG KULON ", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 150, "nik": "3213265001550001", "nama": "ASIH", "alamat": "KP. KASOMALANG KULON ", "rt": "3", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 151, "nik": "3213264902730001", "nama": "ANI SURYANI", "alamat": "KP RANCASARI ", "rt": "3", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 152, "nik": "3213265107440008", "nama": "RESIH", "alamat": "KP SUKAJAYA ", "rt": "1", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 153, "nik": "3213261608550001", "nama": "LALAN SUHERLAN", "alamat": "KARIHKIL ", "rt": "1", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 154, "nik": "3213265604740002", "nama": "MARYAMAH", "alamat": "KP. SUKAJAYA ", "rt": "1", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 155, "nik": "3213264505830001", "nama": "DINIATI ROSYANI", "alamat": "KP. RANCASARI ", "rt": "1", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 156, "nik": "3213261207480001", "nama": "NARA SUKARA", "alamat": "KP SUKAJAYA ", "rt": "5", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 157, "nik": "3213264811570001", "nama": "MARIAH", "alamat": "KP KASOMALANG KULON ", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 158, "nik": "3213265005540007", "nama": "OOM", "alamat": "KASOMALANG KULON ", "rt": "5", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 159, "nik": "3213265305960001", "nama": "KHAIRRUNNISAH", "alamat": "KASOMALANG KULON ", "rt": "5", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 160, "nik": "3213264101650120", "nama": "UUN", "alamat": "KASOMALANGKULON ", "rt": "5", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 161, "nik": "3213262805790001", "nama": "TATA RUHITA", "alamat": "KASOMALANG KULON ", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 162, "nik": "3213265908840005", "nama": "TATI ROHAYATI", "alamat": "KASOMALANG KULON ", "rt": "4", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 163, "nik": "3213266408830001", "nama": "DIEN SRI AGUSTINI", "alamat": "KASOMALANG KULON ", "rt": "4", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 164, "nik": "3213264911790007", "nama": "IDA YANI", "alamat": "KP. RANCASARI ", "rt": "1", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 165, "nik": "3213024512870007", "nama": "LENA MAULANA", "alamat": "KP RANCASARI ", "rt": "3", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 166, "nik": "3213265504390001", "nama": "NINING", "alamat": "KP KASOMALANG ", "rt": "2", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 167, "nik": "3213266102790001", "nama": "DETI WIDIHARTI", "alamat": "KASOMALANG KULON ", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 168, "nik": "3213262605000009", "nama": "MUHAMMAD RIFKY TRIYANA", "alamat": "KASOMALANG KULON ", "rt": "2", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 169, "nik": "3213266008880001", "nama": "SITI MARYAM", "alamat": "KP. KASOMALANG KULON ", "rt": "5", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 170, "nik": "3213266901620001", "nama": "ENUNG YUNINGSIH", "alamat": "KASOMALANG KULON ", "rt": "1", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 171, "nik": "3213265312820002", "nama": "DEDE NURCAHYATI", "alamat": "KP KARIHKIL ", "rt": "3", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 172, "nik": "3213267007990001", "nama": "LILIS MARTINI", "alamat": "KASOMALANG KULON ", "rt": "2", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 173, "nik": "3213265111790009", "nama": "RIKA KARTIKASARI", "alamat": "KASOMALANG KULON ", "rt": "", "rw": "", "dusun": "", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 174, "nik": "3213266403000010", "nama": "ELIS MULYATI", "alamat": "KP RANCASARI ", "rt": "2", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 175, "nik": "3213266707830001", "nama": "LIA AWALIA", "alamat": "KASOMALANG KULON ", "rt": "2", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 176, "nik": "3213266701750002", "nama": "EVA MARIA ARISANTI", "alamat": "KP LELES ", "rt": "3", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 177, "nik": "3213260203550002", "nama": "SUMARNA", "alamat": "KASOMALANGKULON ", "rt": "5", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 178, "nik": "3213034810940015", "nama": "WATI TRESNAWATI", "alamat": "KP. KASOMALANG KULON ", "rt": "4", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 179, "nik": "3213265402540004", "nama": "ARIS", "alamat": "KP. KARIHKIL ", "rt": "3", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 180, "nik": "3213266010690001", "nama": "ENONG RUKAESIH", "alamat": "KASOMALANG KULON ", "rt": "4", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 181, "nik": "3213264101540037", "nama": "OOM", "alamat": "KP SUKAJAYA ", "rt": "2", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 182, "nik": "3213266611840009", "nama": "WINA YUNENGSIH", "alamat": "KAMPUNG SUKAJAYA ", "rt": "2", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 183, "nik": "3213036406900006", "nama": "MIRA MIRASWATI", "alamat": "KP KARIHKIL ", "rt": "1", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 184, "nik": "3213265012660001", "nama": "EEM SURYANI", "alamat": "KP SUKAJAYA ", "rt": "4", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 185, "nik": "3213264509680001", "nama": "NURHAYATI", "alamat": "KASOMALANG KULON ", "rt": "6", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 186, "nik": "3213264101610022", "nama": "ATIKAH", "alamat": "KP KARIHKIL ", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 187, "nik": "3213265608790005", "nama": "DEDEH KHOERIYAH", "alamat": "KP. SUKAJAYA ", "rt": "5", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 188, "nik": "3213264503670001", "nama": "IKAH ATIKAH", "alamat": "KP SUKAJAYA ", "rt": "2", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 189, "nik": "3213266809650001", "nama": "YAYAH RATNASARI", "alamat": "KP. KASOMALANG KULON ", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 190, "nik": "3213264201780002", "nama": "SRI MULYANAH", "alamat": "KP KARIHKIL ", "rt": "6", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 191, "nik": "3213260206530007", "nama": "OTANG SUHENDI", "alamat": "KP LELES ", "rt": "3", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 192, "nik": "3213260101710031", "nama": "SAKRI", "alamat": "", "rt": "2", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 193, "nik": "3213266002720001", "nama": "SITI RASIPAH", "alamat": "KP KARIHKIL ", "rt": "6", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 194, "nik": "3213264109650004", "nama": "ELIS PUSPITASARI", "alamat": "KP. KASOMALANG KULON ", "rt": "1", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 195, "nik": "3213264706550002", "nama": "ROHAETI", "alamat": "KP KASOMALANGKULON ", "rt": "6", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 196, "nik": "3213265307790009", "nama": "ASIH", "alamat": "", "rt": "2", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 197, "nik": "3213266303860013", "nama": "EUIS LISMAWATI", "alamat": "", "rt": "3", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 198, "nik": "3213266508950001", "nama": "ELIS SUGIARTI", "alamat": "KP. KARIHKIL ", "rt": "4", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 199, "nik": "3213266307870001", "nama": "TETI YULIANTI", "alamat": "KP. KARIHKIL ", "rt": "6", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 200, "nik": "3213264107540109", "nama": "ENTANG", "alamat": "KP KASOMALANG KULON ", "rt": "2", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 201, "nik": "3213264202930001", "nama": "ANI HARYANI", "alamat": "KP KARIHKIL ", "rt": "4", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 202, "nik": "3213262005810002", "nama": "EMAR SUMARNA", "alamat": "KASOMALANG KULON ", "rt": "6", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 203, "nik": "3213264808680001", "nama": "IPAH", "alamat": "KP SUKAJAYA ", "rt": "2", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 204, "nik": "3213264102630008", "nama": "UMAS", "alamat": "KP. KARIHKIL ", "rt": "5", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 205, "nik": "3213260807790005", "nama": "YAMAN SURYAMAN", "alamat": "KP KASOMALANG KULON ", "rt": "1", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 206, "nik": "3213265701990001", "nama": "AMELIA FITRIANI", "alamat": "KP. KARIHKIL ", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 207, "nik": "3213264311810001", "nama": "ANI SURYANI", "alamat": "", "rt": "1", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 208, "nik": "3213264606960004", "nama": "ILAH KARMILAH", "alamat": "DUSUN KARIHKIL ", "rt": "6", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 209, "nik": "3210255109910021", "nama": "SRI RAHAYU", "alamat": "KP. KASOMALANG KULON ", "rt": "1", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 210, "nik": "3213296702900006", "nama": "DINI ANDRIANI", "alamat": "KP. KARIHKIL ", "rt": "1", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 211, "nik": "3213036105990002", "nama": "DESTI MAESAROH", "alamat": "", "rt": "2", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 212, "nik": "3213185812820001", "nama": "CUCUN", "alamat": "RANCARI ", "rt": "1", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 213, "nik": "3213260104500003", "nama": "MAJA", "alamat": "KASOMALANG KULON ", "rt": "2", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 214, "nik": "3213264509670001", "nama": "NENGSIH", "alamat": "KP RANCASARI ", "rt": "1", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 215, "nik": "3213265212610002", "nama": "EUIS HARTINI", "alamat": "KP. KASOMALANG KULON ", "rt": "2", "rw": "6", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 216, "nik": "3213265811950006", "nama": "LILIS CASWATI", "alamat": "BLOK S ", "rt": "1", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 217, "nik": "3213264304720003", "nama": "YANI SURYANI", "alamat": "KP RANCASARI ", "rt": "3", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 218, "nik": "3213025901980001", "nama": "UPIT PITRIANI", "alamat": "KP. KARIHKIL ", "rt": "6", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 219, "nik": "3213264409730003", "nama": "NUNUNG NURJANAH", "alamat": "KASOMALANG KULON ", "rt": "1", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 220, "nik": "3213126107810008", "nama": "NENI NURAENI", "alamat": "KASOMALANG KULON ", "rt": "", "rw": "", "dusun": "", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 221, "nik": "3213264101510040", "nama": "CICIH", "alamat": "KP KASOMALANGKULON ", "rt": "5", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 222, "nik": "3213264205880012", "nama": "ROHMAH PURNAMASARI", "alamat": "KP. KASOMALANG KULON ", "rt": "4", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 223, "nik": "3213266101900001", "nama": "TETI PATIMAH", "alamat": "KASOMALANG KULON ", "rt": "4", "rw": "3", "dusun": "Dusun 2", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 224, "nik": "3213264107690144", "nama": "ENCIH", "alamat": "KASOMALANG KULON ", "rt": "1", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 225, "nik": "3213264604530014", "nama": "ACIH", "alamat": "KARIHKIL ", "rt": "6", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 226, "nik": "3213260504930001", "nama": "DEDE SUHERMAN", "alamat": "", "rt": "5", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 227, "nik": "3213266512850006", "nama": "LUSI LUSIANA", "alamat": "KASOMALANG KULON ", "rt": "5", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 228, "nik": "3213265707840002", "nama": "YAYAN", "alamat": "KP. KARIHKIL ", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 229, "nik": "3213265212750006", "nama": "ADE JULAEHA", "alamat": "KP RANCASARI ", "rt": "2", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 230, "nik": "3213266406750002", "nama": "SARSIH", "alamat": "KASOMALANG KULON KP KARIHKIL ", "rt": "5", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 231, "nik": "3213265611880001", "nama": "NURUL ISTIQOMAH", "alamat": "KASOMALANG KULON ", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 232, "nik": "3213265206740009", "nama": "AWANG", "alamat": "KASOMALANG KULON ", "rt": "3", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 233, "nik": "3213265406890001", "nama": "EMPIK SUKAESIH", "alamat": "KASOMALANGKULON ", "rt": "1", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 234, "nik": "3213261101970002", "nama": "RIDWAN SAEPUL HAYAT", "alamat": "", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 235, "nik": "3213265006600012", "nama": "ARMINIH", "alamat": "KP KARIHKIL ", "rt": "3", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 236, "nik": "3213260807560002", "nama": "TATANG SUTRISNO", "alamat": "KP BABAKAN SUKAJAYA ", "rt": "2", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 237, "nik": "3213264705680006", "nama": "SITI ROHMAH", "alamat": "KASOMALANG KULON ", "rt": "2", "rw": "1", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 238, "nik": "3213264106980001", "nama": "BUNGA MULYASARI", "alamat": "KP KASOMALANG KULON ", "rt": "3", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 239, "nik": "3213262305830006", "nama": "YUSUP SURYANA", "alamat": "KP. SUKAJAYA ", "rt": "2", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 240, "nik": "3172016104961003", "nama": "SINTA APRILYANI", "alamat": "KP KASOMALANG ", "rt": "", "rw": "", "dusun": "", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 241, "nik": "3213266406810005", "nama": "ATE HARTATI", "alamat": "", "rt": "1", "rw": "5", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 242, "nik": "3206384608840005", "nama": "AI FITRI YANI", "alamat": "KP. KASOMALANG KULON ", "rt": "4", "rw": "4", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 243, "nik": "3213260101500061", "nama": "RAHYA", "alamat": "", "rt": "2", "rw": "7", "dusun": "Dusun 3", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}, {"no": 244, "nik": "3273167004960004", "nama": "SRIYANTI", "alamat": "KP KARIHKIL ", "rt": "4", "rw": "2", "dusun": "Dusun 1", "bank": "BRI", "ket": "SUDAH SPM", "program": "BPNT"}];
 
-// ── GitHub raw URLs ──
-const PKH_URL  = 'https://raw.githubusercontent.com/xxcode2/pkhbpnt/main/DATA%20PKH%20BULAN%20APRIL%20-%20JUNI%20TAHAP%202.xlsx';
-const BPNT_URL = 'https://raw.githubusercontent.com/xxcode2/pkhbpnt/main/DATA%20BPNT%20TAHAP%202%20TAHUN%202026%20BULAN%20APRIL-JUNI.xlsx';
+let currentPage=1, PAGE_SIZE=25, sortField=null, sortDir=1, activeProgFilter='';
 
-async function loadBinary(url) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.arrayBuffer();
-}
-
-async function loadFromGitHub() {
-  const btn = document.getElementById('btnLoad');
-  const status = document.getElementById('sourceStatus');
-  btn.disabled = true;
-  btn.textContent = '⏳ Loading…';
-  status.textContent = '';
-  status.className = 'source-status';
-
-  try {
-    status.textContent = 'Mengunduh PKH…';
-    const pkhBuf  = await loadBinary(PKH_URL);
-    status.textContent = 'Mengunduh BPNT…';
-    const bpntBuf = await loadBinary(BPNT_URL);
-
-    status.textContent = 'Memproses data…';
-
-    const pkhRows  = await readXLSXBuf(pkhBuf);
-    const bpntRows = await readXLSXBuf(bpntBuf);
-
-    // Combine
-    const nikMap = {};
-    pkhRows.forEach(r => {
-      const nik = normNik(r[1]); // NIK = col index 1
-      if (!nik) return;
-      nikMap[nik] = {...r, _PKH:true, _BPNT:false};
+// ─── HERO BARS ───
+(function(){
+  const byDusun={};
+  allData.forEach(d=>{const k=d.dusun||'—';byDusun[k]=(byDusun[k]||0)+1;});
+  const entries=Object.entries(byDusun).sort((a,b)=>b[1]-a[1]);
+  const max=entries[0]?.[1]||1;
+  const colors=['#60A5FA','#818CF8','#34D399','#F59E0B'];
+  const wrap=document.getElementById('heroVisual');
+  wrap.innerHTML=entries.map(([k,v],i)=>`
+    <div class="hero-bar-wrap">
+      <div class="hero-bar" data-h="${v/max*140}" style="background:${colors[i%colors.length]};height:0px;width:40px"></div>
+      <div class="hero-bar-lbl">${v}</div>
+    </div>`).join('');
+  setTimeout(()=>{
+    wrap.querySelectorAll('.hero-bar').forEach(el=>{
+      el.style.height=el.dataset.h+'px';
     });
-    bpntRows.forEach(r => {
-      const nik = normNik(r[1]);
-      if (!nik) return;
-      if (nikMap[nik]) {
-        nikMap[nik]._BPNT = true;
-      } else {
-        nikMap[nik] = {...r, _PKH:false, _BPNT:true};
-      }
+  },300);
+})();
+
+// ─── MINI CHART ───
+function renderMiniChart(){
+  const byDusun={};
+  allData.forEach(d=>{const k=d.dusun||'Lainnya';byDusun[k]=(byDusun[k]||0)+1;});
+  const entries=Object.entries(byDusun).sort((a,b)=>b[1]-a[1]);
+  const max=entries[0]?.[1]||1;
+  const colors={'Dusun 1':'#3B82F6','Dusun 2':'#8B5CF6','Dusun 3':'#10B981','Lainnya':'#94A3B8'};
+  document.getElementById('miniChart').innerHTML=entries.map(([k,v])=>`
+    <div class="mc-row">
+      <div class="mc-label">${k}</div>
+      <div class="mc-track"><div class="mc-fill" style="background:${colors[k]||'#94A3B8'};--tw:${v/max*100}%"></div></div>
+      <div class="mc-val">${v}</div>
+    </div>`).join('');
+  setTimeout(()=>{
+    document.querySelectorAll('.mc-fill').forEach(el=>{
+      el.style.width=el.style.getPropertyValue('--tw')||el.getAttribute('style').match(/--tw:([^;]+)/)?.[1]||'0%';
     });
-
-    allData = Object.values(nikMap).map((r, i) => {
-      let prog = '';
-      if (r._PKH && r._BPNT) prog = 'PKH + BPNT';
-      else if (r._PKH)         prog = 'PKH';
-      else                     prog = 'BPNT';
-
-      const nik    = String(r[1] || '');
-      const nama   = String(r[2] || '');
-      const alamat = String(r[4] || '');
-      const rtRaw  = String(r[6] || '').trim();
-      const rwRaw  = String(r[7] || '').trim();
-      const bank   = String(r[8] || '');
-      const ket    = String(r[9] || '');
-
-      // Normalize to plain integer string (no zero-padding) for consistent comparison
-      const rt  = rtRaw ? String(rtRaw).replace(/\D/g,'') : '';
-      const rw  = rwRaw ? String(rwRaw).replace(/\D/g,'') : '';
-      // dusun lookup must use normalized (non-padded) rw
-      const dusun = rw ? (RW_DUSUN_MAP[rw] || '') : '';
-
-      return {
-        no: i+1, nik, nama, alamat, rt, rw, dusun, bank, ket, program: prog
-      };
-    });
-
-    updateStats();
-    buildDusunFilter();
-    document.getElementById('btnExport').style.display = 'flex';
-    renderCharts();
-    renderTable();
-    document.getElementById('chartsGrid').style.display = 'grid';
-
-    const total = allData.length;
-    status.textContent = `✓ Loaded ${total} data`;
-    status.className = 'source-status ready';
-    btn.textContent = '🔄 Refresh';
-    btn.disabled = false;
-  } catch(e) {
-    status.textContent = '✗ Gagal: ' + e.message;
-    status.className = 'source-status';
-    btn.textContent = '⬇️ Load Data';
-    btn.disabled = false;
-    document.getElementById('showUploadToggle').style.display = 'block';
-    document.getElementById('uploadSection').style.display = 'block';
-  }
+  },400);
 }
+renderMiniChart();
 
-function readXLSXBuf(buf) {
-  return new Promise((resolve, reject) => {
-    try {
-      const wb = XLSX.read(buf, {type:'array'});
-      const ws = wb.Sheets[wb.SheetNames[0]];
-      const rows = XLSX.utils.sheet_to_json(ws, {header:1, defval:''});
-      // Filter out empty rows AND skip header row (first row = ['NO','NIK',...])
-      resolve(rows.slice(1).filter(r => r.some(c => c !== '')));
-    } catch(e) { reject(e); }
+// ─── FILTER LOGIC ───
+let _searchTimer=null;
+function onSearch(){
+  clearTimeout(_searchTimer);
+  _searchTimer=setTimeout(()=>{currentPage=1;renderTable();},120);
+}
+function setProgFilter(el, val){
+  document.querySelectorAll('.prog-pill').forEach(p=>{
+    p.className='prog-pill';
   });
+  activeProgFilter=val;
+  if(val==='')el.classList.add('active-all');
+  else if(val==='PKH')el.classList.add('active-pkh');
+  else if(val==='BPNT')el.classList.add('active-bpnt');
+  else el.classList.add('active-both');
+  currentPage=1;renderTable();
 }
-
-function normNik(v) {
-  return String(v || '').replace(/\s/g,'');
+function onDusunChange(){
+  const dusun=document.getElementById('filterDusun').value;
+  const rwSel=document.getElementById('filterRW');
+  const rtSel=document.getElementById('filterRT');
+  rtSel.innerHTML='<option value="">Semua RT</option>';rtSel.disabled=true;
+  if(!dusun){rwSel.innerHTML='<option value="">Semua RW</option>';rwSel.disabled=true;return;}
+  const rws=DUSUN_RW_MAP[dusun]||[];
+  rwSel.innerHTML='<option value="">Semua RW</option>';
+  rws.forEach(r=>rwSel.appendChild(new Option('RW '+r,r)));
+  rwSel.disabled=false;rwSel.value='';
 }
-
-// ── File label ──
-document.getElementById('filePKH').addEventListener('change', function(){
-  document.getElementById('namePKH').textContent = this.files[0]?.name || 'Pilih file .xlsx';
-});
-document.getElementById('fileBPNT').addEventListener('change', function(){
-  document.getElementById('nameBPNT').textContent = this.files[0]?.name || 'Pilih file .xlsx';
-});
-
-function readXLSXFile(file) {
-  return new Promise((resolve) => {
-    const reader = new FileReader();
-    reader.onload = e => {
-      const wb = XLSX.read(e.target.result, {type:'array'});
-      const ws = wb.Sheets[wb.SheetNames[0]];
-      const rows = XLSX.utils.sheet_to_json(ws, {header:1, defval:''});
-      resolve(rows.filter(r => r.some(c => c !== '')));
-    };
-    reader.readAsArrayBuffer(file);
-  });
+function onRWChange(){
+  const rw=document.getElementById('filterRW').value;
+  const rtSel=document.getElementById('filterRT');
+  if(!rw){rtSel.innerHTML='<option value="">Semua RT</option>';rtSel.disabled=true;return;}
+  const rts=RW_RT_MAP[rw]||[];
+  rtSel.innerHTML='<option value="">Semua RT</option>';
+  rts.forEach(r=>rtSel.appendChild(new Option('RT '+r,r)));
+  rtSel.disabled=false;rtSel.value='';
 }
-
-async function mergeData() {
-  const fPKH  = document.getElementById('filePKH').files[0];
-  const fBPNT = document.getElementById('fileBPNT').files[0];
-
-  if (!fPKH && !fBPNT) { alert('Pilih minimal satu file Excel.'); return; }
-
-  let pkhRows  = fPKH  ? await readXLSXFile(fPKH)  : [];
-  let bpntRows = fBPNT ? await readXLSXFile(fBPNT) : [];
-
-  // Skip header row
-  if (pkhRows.length)  pkhRows  = pkhRows.slice(1);
-  if (bpntRows.length) bpntRows = bpntRows.slice(1);
-
-  const nikMap = {};
-  pkhRows.forEach(r => {
-    const nik = normNik(r[1]);
-    if (!nik) return;
-    nikMap[nik] = {...r, _PKH:true, _BPNT:false};
-  });
-  bpntRows.forEach(r => {
-    const nik = normNik(r[1]);
-    if (!nik) return;
-    if (nikMap[nik]) {
-      nikMap[nik]._BPNT = true;
-    } else {
-      nikMap[nik] = {...r, _PKH:false, _BPNT:true};
-    }
-  });
-
-  allData = Object.values(nikMap).map((r, i) => {
-    let prog = '';
-    if (r._PKH && r._BPNT) prog = 'PKH + BPNT';
-    else if (r._PKH)         prog = 'PKH';
-    else                     prog = 'BPNT';
-
-    const nik    = String(r[1] || '');
-    const nama   = String(r[2] || '');
-    const alamat = String(r[4] || '');
-    const rtRaw  = String(r[6] || '').trim();
-    const rwRaw  = String(r[7] || '').trim();
-    const bank   = String(r[8] || '');
-    const ket    = String(r[9] || '');
-
-    const rt  = rtRaw ? String(rtRaw).replace(/\D/g,'') : '';
-    const rw  = rwRaw ? String(rwRaw).replace(/\D/g,'') : '';
-    const dusun = rw ? (RW_DUSUN_MAP[rw] || '') : '';
-
-    return { no:i+1, nik, nama, alamat, rt, rw, dusun, bank, ket, program:prog };
-  });
-
-  updateStats();
-  buildDusunFilter();
-  document.getElementById('btnExport').style.display = 'flex';
-  renderCharts();
-  renderTable();
-  document.getElementById('chartsGrid').style.display = 'grid';
-  document.getElementById('sourceStatus').textContent = `✓ Loaded ${allData.length} data (upload manual)`;
-  document.getElementById('sourceStatus').className = 'source-status ready';
+function resetFilters(){
+  document.getElementById('searchInput').value='';
+  document.getElementById('filterDusun').value='';
+  document.getElementById('filterRW').innerHTML='<option value="">Semua RW</option>';
+  document.getElementById('filterRW').disabled=true;
+  document.getElementById('filterRT').innerHTML='<option value="">Semua RT</option>';
+  document.getElementById('filterRT').disabled=true;
+  setProgFilter(document.querySelector('.prog-pill[data-prog=""]'),'');
+  currentPage=1;renderTable();
 }
-
-function buildDusunFilter() {
-  const sel = document.getElementById('filterDusun');
-  sel.innerHTML = '<option value="">Semua Desa</option>';
-  const dusuns = ['Dusun 1','Dusun 2','Dusun 3'];
-  dusuns.forEach(d => sel.appendChild(new Option(d, d)));
-}
-
-function onDusunChange() {
-  const dusun = document.getElementById('filterDusun').value;
-  const rwSel = document.getElementById('filterRW');
-  const rtSel = document.getElementById('filterRT');
-  rtSel.innerHTML = '<option value="">Semua RT</option>';
-  rtSel.disabled = true;
-
-  if (!dusun) {
-    rwSel.innerHTML = '<option value="">Semua RW</option>';
-    rwSel.disabled = true;
-    return;
-  }
-
-  const rws = DUSUN_RW_MAP[dusun] || [];
-  rwSel.innerHTML = '<option value="">Semua RW</option>';
-  rws.forEach(r => rwSel.appendChild(new Option('RW ' + r, r)));
-  rwSel.disabled = false;
-  rwSel.value = '';
-}
-
-function onRWChange() {
-  const rw = document.getElementById('filterRW').value;
-  const rtSel = document.getElementById('filterRT');
-
-  if (!rw) {
-    rtSel.innerHTML = '<option value="">Semua RT</option>';
-    rtSel.disabled = true;
-    return;
-  }
-
-  const rts = RW_RT_MAP[rw] || [];
-  rtSel.innerHTML = '<option value="">Semua RT</option>';
-  rts.forEach(r => rtSel.appendChild(new Option('RT ' + r, r)));
-  rtSel.disabled = false;
-  rtSel.value = '';
-}
-
-function updateStats(){
-  const pkh  = allData.filter(d=>d.program==='PKH').length;
-  const bpnt = allData.filter(d=>d.program==='BPNT').length;
-  const both = allData.filter(d=>d.program==='PKH + BPNT').length;
-  document.getElementById('statTotal').textContent = allData.length.toLocaleString('id');
-  document.getElementById('statPKH').textContent   = pkh.toLocaleString('id');
-  document.getElementById('statBPNT').textContent  = bpnt.toLocaleString('id');
-  document.getElementById('statBoth').textContent  = both.toLocaleString('id');
-}
-
-function renderCharts(){
-  const pkh  = allData.filter(d=>d.program==='PKH').length;
-  const bpnt = allData.filter(d=>d.program==='BPNT').length;
-  const both = allData.filter(d=>d.program==='PKH + BPNT').length;
-  const total= allData.length || 1;
-
-  // ── Animated Donut ──
-  const canvas = document.getElementById('donutCanvas');
-  const ctx = canvas.getContext('2d');
-  const cx=45,cy=45,r=38,ir=22;
-  ctx.clearRect(0,0,90,90);
-  const segs = [
-    {val:pkh,  color:'#C0831A'},
-    {val:bpnt, color:'#0E7490'},
-    {val:both, color:'#15803D'},
-  ];
-
-  let start = -Math.PI/2;
-  let progress = 0;
-  const targetProgress = 1;
-  const duration = 900;
-  const startTime = performance.now();
-
-  function animateDonut(ts) {
-    progress = Math.min((ts - startTime) / duration, targetProgress);
-    ctx.clearRect(0,0,90,90);
-    let angleSum = -Math.PI/2;
-    segs.forEach(s => {
-      const segAngle = (s.val/total) * Math.PI * 2;
-      const drawnAngle = segAngle * progress;
-      ctx.beginPath();
-      ctx.moveTo(cx,cy);
-      ctx.arc(cx,cy,r,angleSum,angleSum+drawnAngle);
-      ctx.closePath();
-      ctx.fillStyle = s.color;
-      ctx.fill();
-      angleSum += segAngle;
-    });
-    ctx.beginPath();
-    ctx.arc(cx,cy,ir,0,Math.PI*2);
-    ctx.fillStyle='#fff';
-    ctx.fill();
-    if (progress < targetProgress) requestAnimationFrame(animateDonut);
-  }
-  requestAnimationFrame(animateDonut);
-
-  document.getElementById('donutLegend').innerHTML = `
-    <li><span class="dot" style="background:#C0831A"></span>PKH <span>${pkh}</span></li>
-    <li><span class="dot" style="background:#0E7490"></span>BPNT <span>${bpnt}</span></li>
-    <li><span class="dot" style="background:#15803D"></span>PKH+BPNT <span>${both}</span></li>
-  `;
-
-  // ── Animate dusun bars ──
-  const dusunCount = {};
-  allData.forEach(d => {
-    const key = d.dusun || 'Lainnya';
-    dusunCount[key] = (dusunCount[key]||0)+1;
-  });
-  const sortedDusun = Object.entries(dusunCount).sort((a,b)=>b[1]-a[1]);
-  const maxD = sortedDusun[0]?.[1] || 1;
-  document.getElementById('dusunBars').innerHTML = sortedDusun.map(([d,n]) => `
-    <li>
-      <span class="bar-label">${d||'—'}</span>
-      <span class="bar-track"><span class="bar-fill" style="--target-width:${n/maxD*100}%;background:#1A56DB"></span></span>
-      <span class="bar-val">${n}</span>
-    </li>`).join('');
-  // Trigger animation after render
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      document.querySelectorAll('#dusunBars .bar-fill').forEach(el => el.classList.add('animate'));
-    });
-  });
-
-  // ── Animate RW bars ──
-  const rwCount = {};
-  allData.forEach(d => {
-    if (!d.rw) return;
-    const key = 'RW ' + d.rw;
-    rwCount[key] = (rwCount[key]||0)+1;
-  });
-  const sortedRW = Object.entries(rwCount).sort((a,b)=>b[1]-a[1]);
-  const maxRW = sortedRW[0]?.[1] || 1;
-  document.getElementById('rwBars').innerHTML = sortedRW.map(([r,n]) => `
-    <li>
-      <span class="bar-label">${r||'—'}</span>
-      <span class="bar-track"><span class="bar-fill" style="--target-width:${n/maxRW*100}%;background:#7E3AF2"></span></span>
-      <span class="bar-val">${n}</span>
-    </li>`).join('');
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      document.querySelectorAll('#rwBars .bar-fill').forEach(el => el.classList.add('animate'));
-    });
-  });
-}
-
 function getFiltered(){
-  const q   = document.getElementById('searchInput').value.toLowerCase();
-  const p   = document.getElementById('filterProgram').value;
-  const ds  = document.getElementById('filterDusun').value;
-  const rw  = document.getElementById('filterRW').value;
-  const rt  = document.getElementById('filterRT').value;
-  return allData.filter(r =>
-    (!q   || r.nama.toLowerCase().includes(q) || r.nik.includes(q)) &&
-    (!p   || r.program === p) &&
-    (!ds  || r.dusun === ds) &&
-    (!rw  || String(r.rw) === rw) &&
-    (!rt  || String(r.rt) === rt)
+  const q=document.getElementById('searchInput').value.toLowerCase().trim();
+  const ds=document.getElementById('filterDusun').value;
+  const rw=document.getElementById('filterRW').value;
+  const rt=document.getElementById('filterRT').value;
+  let data=allData.filter(r=>
+    (!q||(r.nama.toLowerCase().includes(q)||r.nik.includes(q)))&&
+    (!activeProgFilter||r.program===activeProgFilter)&&
+    (!ds||r.dusun===ds)&&
+    (!rw||String(r.rw)===rw)&&
+    (!rt||String(r.rt)===rt)
   );
+  if(sortField){
+    data=[...data].sort((a,b)=>{
+      const av=a[sortField]||'',bv=b[sortField]||'';
+      return av.localeCompare(bv,'id')*sortDir;
+    });
+  }
+  return data;
+}
+function sortBy(field){
+  if(sortField===field)sortDir*=-1; else {sortField=field;sortDir=1;}
+  document.querySelectorAll('th').forEach(th=>{th.classList.remove('sorted');});
+  const th=document.getElementById('th-'+field);
+  if(th){th.classList.add('sorted');th.querySelector('.sort-ico').textContent=sortDir===1?'↑':'↓';}
+  renderTable();
 }
 
+// ─── NIK MASK ───
+function maskNik(nik){
+  if(nik.length<8)return nik;
+  return nik.slice(0,4)+'••••••••'+nik.slice(-4);
+}
+function toggleNik(btn){
+  const row=btn.closest('td');
+  const masked=row.querySelector('.nik-masked');
+  const full=row.querySelector('.nik-full');
+  if(full.style.display==='none'||!full.style.display){
+    full.style.display='inline';masked.style.display='none';btn.textContent='🙈';
+  } else {
+    full.style.display='none';masked.style.display='inline';btn.textContent='👁';
+  }
+}
+
+// ─── RENDER TABLE ───
 function renderTable(){
-  const filtered = getFiltered();
-  const total = filtered.length;
-  const pages = Math.ceil(total/PAGE_SIZE) || 1;
-  if (currentPage > pages) currentPage = 1;
+  const filtered=getFiltered();
+  const total=filtered.length;
+  const pages=Math.ceil(total/PAGE_SIZE)||1;
+  if(currentPage>pages)currentPage=1;
 
-  document.getElementById('resultInfo').innerHTML =
-    total > 0
-      ? `Menampilkan <strong>${total.toLocaleString('id')}</strong> dari <strong>${allData.length.toLocaleString('id')}</strong> penerima`
-      : '';
+  document.getElementById('resultCount').textContent=total.toLocaleString('id');
+  document.getElementById('resultSub').textContent=
+    total===allData.length
+      ? `penerima · klik 👁 untuk lihat NIK lengkap`
+      : `dari ${allData.length} total · filter aktif`;
 
-  const slice = filtered.slice((currentPage-1)*PAGE_SIZE, currentPage*PAGE_SIZE);
+  const slice=filtered.slice((currentPage-1)*PAGE_SIZE,currentPage*PAGE_SIZE);
 
-  if (!slice.length) {
-    document.getElementById('tableBody').innerHTML =
-      `<tr><td colspan="7"><div class="empty"><div class="ico">🔍</div><p>Data tidak ditemukan.</p></div></td></tr>`;
-    document.getElementById('pagination').innerHTML = '';
+  if(!slice.length){
+    document.getElementById('tableBody').innerHTML=`
+      <tr><td colspan="7">
+        <div class="empty-state">
+          <div class="empty-icon">🔍</div>
+          <div class="empty-title">Tidak ada hasil</div>
+          <div class="empty-sub">Coba ubah kata kunci atau filter</div>
+        </div>
+      </td></tr>`;
+    document.getElementById('pagination').innerHTML='';
+    document.getElementById('pagInfo').textContent='';
     return;
   }
 
-  document.getElementById('tableBody').innerHTML = slice.map((r,i) => {
-    const progClass = r.program==='PKH + BPNT' ? 'both' : r.program==='PKH' ? 'pkh' : 'bpnt';
+  const progMap={'PKH':'prog-pkh','BPNT':'prog-bpnt','PKH + BPNT':'prog-both'};
+  document.getElementById('tableBody').innerHTML=slice.map((r,i)=>{
+    const pc=progMap[r.program]||'prog-bpnt';
+    const rtRw=r.rt&&r.rw?`${r.rt} / ${r.rw}`:r.rw?`— / ${r.rw}`:'—';
+    const dusunColor={'Dusun 1':'background:#EFF6FF;color:#1D4ED8;border-color:#BFDBFE','Dusun 2':'background:#F5F3FF;color:#6D28D9;border-color:#DDD6FE','Dusun 3':'background:#ECFDF5;color:#065F46;border-color:#A7F3D0'};
+    const ds=dusunColor[r.dusun]||'';
     return `<tr>
-      <td class="no-cell">${(currentPage-1)*PAGE_SIZE+i+1}</td>
-      <td class="nik-cell">${r.nik}</td>
-      <td class="name-cell">${r.nama}</td>
-      <td style="font-size:12.5px;color:var(--muted)">${r.alamat}</td>
-      <td style="text-align:center;font-size:12px">${r.rt}/${r.rw}</td>
-      <td>${r.dusun || '—'}</td>
-      <td><span class="chip ${progClass}">${r.program}</span></td>
+      <td class="td-no">${(currentPage-1)*PAGE_SIZE+i+1}</td>
+      <td class="td-name">${r.nama}</td>
+      <td class="td-nik">
+        <span class="nik-masked">${maskNik(r.nik)}</span>
+        <span class="nik-full" style="display:none">${r.nik}</span>
+        <button class="nik-toggle" onclick="toggleNik(this)" title="Lihat NIK">👁</button>
+      </td>
+      <td class="td-addr" title="${r.alamat}">${r.alamat||'—'}</td>
+      <td class="td-rtrw">${rtRw}</td>
+      <td><span class="dusun-badge" style="${ds}">${r.dusun||'—'}</span></td>
+      <td><span class="prog-badge ${pc}">${r.program}</span></td>
     </tr>`;
   }).join('');
 
   // Pagination
-  const pag = document.getElementById('pagination');
-  let btns = '';
-  btns += `<button class="pg-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>‹</button>`;
-  for (let i=1;i<=pages;i++){
-    if (pages<=7||i===1||i===pages||Math.abs(i-currentPage)<=1) {
-      btns += `<button class="pg-btn ${i===currentPage?'active':''}" onclick="goPage(${i})">${i}</button>`;
-    } else if(Math.abs(i-currentPage)===2){
-      btns += `<span style="padding:0 4px;color:var(--muted)">…</span>`;
+  const start=(currentPage-1)*PAGE_SIZE+1;
+  const end=Math.min(currentPage*PAGE_SIZE,total);
+  document.getElementById('pagInfo').textContent=`${start}–${end} dari ${total}`;
+
+  const pag=document.getElementById('pagination');
+  let btns=`<button class="pg-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>‹</button>`;
+  for(let i=1;i<=pages;i++){
+    if(pages<=8||i===1||i===pages||Math.abs(i-currentPage)<=1){
+      btns+=`<button class="pg-btn ${i===currentPage?'active':''}" onclick="goPage(${i})">${i}</button>`;
+    }else if(Math.abs(i-currentPage)===2){
+      btns+=`<span style="padding:0 2px;color:var(--text3);font-size:12px">…</span>`;
     }
   }
-  btns += `<button class="pg-btn" onclick="goPage(${currentPage+1})" ${currentPage===pages?'disabled':''}>›</button>`;
-  pag.innerHTML = btns;
+  btns+=`<button class="pg-btn" onclick="goPage(${currentPage+1})" ${currentPage===pages?'disabled':''}>›</button>`;
+  pag.innerHTML=btns;
+}
+function goPage(p){
+  currentPage=p;renderTable();
+  window.scrollTo({top:document.querySelector('.main').offsetTop-80,behavior:'smooth'});
 }
 
-function goPage(p){ currentPage=p; renderTable(); window.scrollTo({top:400,behavior:'smooth'}); }
-
-function exportFiltered() {
-  const data = getFiltered();
-  if (!data.length) { alert('Tidak ada data untuk di-export.'); return; }
-
-  const wsData = [
-    ['NO','NIK','NAMA','ALAMAT','RT','RW','DESA','PROGRAM','BANK','KET'],
-    ...data.map((r,i) => [i+1, r.nik, r.nama, r.alamat, r.rt, r.rw, r.dusun||'', r.program, r.bank||'', r.ket||''])
+// ─── EXPORT ───
+function exportFiltered(){
+  const data=getFiltered();
+  if(!data.length){showToast('Tidak ada data untuk di-export');return;}
+  const wsData=[
+    ['NO','NIK','NAMA','ALAMAT','RT','RW','DUSUN','PROGRAM','BANK','KET'],
+    ...data.map((r,i)=>[i+1,r.nik,r.nama,r.alamat,r.rt,r.rw,r.dusun||'',r.program,r.bank||'',r.ket||''])
   ];
-  const ws = XLSX.utils.aoa_to_sheet(wsData);
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, 'Data Bansos');
-  XLSX.writeFile(wb, 'Data_Bansos_Filtered.xlsx');
+  const ws=XLSX.utils.aoa_to_sheet(wsData);
+  const wb=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb,ws,'Bansos 2026');
+  XLSX.writeFile(wb,'Rekap_Bansos_Kasomalang_Kulon_2026.xlsx');
+  showToast(`✅ Export ${data.length} data berhasil`);
 }
+
+// ─── TOAST ───
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+renderTable();
 </script>
 </body>
 </html>
